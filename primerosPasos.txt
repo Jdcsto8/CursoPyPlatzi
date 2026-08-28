@@ -632,6 +632,225 @@ https://github.com/platzi/python-fundamentos/blob/master/comentarios/comentarios
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
+#7 Variables en Python: reglas y convenciones
+
+
+Las variables en Python funcionan como cajitas en memoria donde guardas un valor para reutilizarlo después. Aprender a declararlas y nombrarlas correctamente es la base para escribir código limpio, evitar errores y avanzar con cualquier curso de programación.
+
+¿Qué es una variable en Python y cómo se declara?
+
+Una variable es un espacio en memoria al que Python accede para recuperar el valor que le asignaste. La declaración es directa: escribes el nombre, el signo igual y el valor.
+
+python x = "esta es una variable" print(x)
+
+Al ejecutar print(x) no se imprime la letra x, sino el texto guardado. Ese signo = se llama operador de asignación y siempre lleva el valor de la derecha hacia la variable de la izquierda [1:00].
+
+¿Qué hace el operador de asignación en Python? Toma el valor de la derecha y lo guarda en la variable de la izquierda. Es la forma estándar de meter datos en esa cajita de memoria.
+
+Usar variables como referencia, en vez de escribir el valor directo dentro de un print, es la forma correcta de programar. Más adelante todos los métodos del lenguaje van a recibir variables, no textos sueltos.
+
+¿Por qué Python distingue mayúsculas y minúsculas en las variables?
+
+Porque Python es case sensitive. Eso significa que x y X apuntan a lugares distintos en memoria, aunque visualmente parezcan lo mismo [3:30].
+
+python x = "esta es una variable" X = "esta es otra variable" print(x) # esta es una variable print(X) # esta es otra variable
+
+Otro detalle clave: Python permite sobrescribir variables. Si reasignas x más abajo en el código, el segundo print mostrará el nuevo valor. El orden importa, y aquí viene lo interesante, porque ese comportamiento puede generar bugs si no llevas registro de tus reasignaciones.
+
+¿Qué nombres de variables son válidos en Python?
+
+Las reglas para nombrar variables tienen una lógica clara. Estos formatos son válidos:
+
+Solo minúsculas: mivariable.
+Con guion bajo intermedio: mi_variable.
+Empezando con guion bajo: _mi_variable.
+Mezclando mayúsculas y minúsculas: miVariable, OtraVariable.
+Todo en mayúsculas: MIVARIABLE.
+Con números, siempre que no estén al inicio: miVariable2.
+Y estos formatos son inválidos y Visual Studio Code te los marca al instante:
+
+Empezar con número: 2variable.
+Usar guion medio: mi-variable.
+Incluir espacios: mi variable.
+¿Puedo empezar el nombre de una variable con un número? No. Python rechaza cualquier nombre que comience con un dígito. Sí puedes usar números, pero solo después de la primera letra o guion bajo.
+
+¿Cuándo usar camelCase, PascalCase o snake_case en Python?
+
+Cuando el nombre de la variable es largo, necesitas una convención para que se lea bien. Hay tres muy usadas y cada una tiene su lugar [7:00].
+
+camelCase, PascalCase y snake_case explicados
+
+camelCase: la primera palabra en minúscula y las siguientes con mayúscula inicial. Ejemplo: comienzaConMinuscula.
+PascalCase: igual que camelCase pero la primera palabra también arranca con mayúscula. Ejemplo: ComienzaConMayuscula.
+snake_case: todas las palabras en minúscula separadas por guion bajo. Ejemplo: snake_case_variable.
+
+
+Lo crítico es la coherencia. Si eliges snake_case para tu proyecto, mantenlo en todas las variables. Mezclar estilos vuelve el código confuso y poco profesional.
+
+¿Cuándo se usan variables en MAYÚSCULAS o con guion bajo inicial? Las mayúsculas suelen reservarse para constantes, valores que no van a cambiar. El guion bajo inicial marca variables de acceso privado dentro de una clase o módulo.
+
+Estas convenciones no son obligatorias para que el código funcione, pero sí son las que vas a encontrar en cualquier proyecto serio de Python. Adoptarlas desde ahora te ahorra reescrituras después.
+
+¿Qué convención vas a usar tú en tus primeros proyectos? Cuéntame en los comentarios cómo nombras tus variables.
+
+links:
+
+https://github.com/platzi/python-fundamentos/commit/d6245604e261b3a7db158ec90889e33ebe4b0e6e
+
+https://github.com/platzi/python-fundamentos/blob/master/variables/variables.py
+
+--------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+
+# 8 Asignación múltiple de variables en Python
+
+
+Domina cómo usar múltiples variables en Python con asignación por posición, valores repetidos y salidas claras. Aquí verás, paso a paso, cómo imprimir con coma y cómo concatenar con el operador + para texto, además de la diferencia clave cuando trabajas con números. Todo explicado con ejemplos simples y prácticos.
+
+¿Cómo funciona la asignación múltiple en Python?
+
+Asignar varios valores a varias variables en una sola línea es directo y legible. Se hace por posición, lo que mejora la claridad del código y evita errores al repetir líneas.
+
+X, Y, Z = "manzana", "naranja", "banana" print(X, Y, Z)
+
+Asignación por posición: X recibe "manzana", Y "naranja", Z "banana".
+Salida con coma: print separa con un espacio automáticamente.
+Habilidad clave: escribir menos y entender más rápido el código.
+¿Cómo asignar el mismo valor a varias variables?
+
+Cuando varias variables deben compartir un mismo valor, la sintaxis en cadena simplifica el trabajo y reduce repeticiones.
+
+A = B = C = "mandarina" print(A, B, C)
+
+Asignación en cadena: A, B y C quedan con "mandarina".
+Salida clara: print con coma muestra valores separados por espacio.
+Concepto útil: mantener consistencia cuando un mismo dato aplica a varias variables.
+¿Cuándo usar coma vs operador + en print?
+
+La coma en print separa argumentos y agrega un espacio. El operador + une texto de forma directa, sin espacio extra. Esto cambia cómo se ve la salida y cómo combinar variables con texto.
+
+# Coma: argumentos separados con espacio automáticamente print(X, Y, Z)  # manzana naranja banana  # +: concatenación de texto sin espacio extra print("mi fruta favorita es " + X)  # mi fruta favorita es manzana  # Agregar un espacio manual al concatenar print(A + " " + Z)  # mandarina banana  # Sin espacio manual, se pega el texto print(A + Z)  # mandarinabanana
+
+Concatenación con +: une texto tal cual, sin espacio adicional.
+Cuidados con el espacio: añade " " cuando quieras separación visible.
+Palabra clave: concatenar es distinto a separar con coma en print.
+¿Qué pasa con números al usar + en Python?
+
+Con texto, + concatena. Con números, + suma. Esto evita confusiones al mezclar tipos de datos en salidas.
+
+D = 5 E = 6 print(D + E)  # 11
+
+Operación matemática: 5 + 6 da 11, no "56".
+Idea principal: el operador + cambia según sea texto o número.
+Habilidad clave: elegir entre coma o + según el tipo de dato y el formato deseado.
+¿Te animas a practicar? Explora una temática distinta a las frutas y cuéntame en comentarios qué variables usaste y qué combinaciones lograste con asignación múltiple y concatenación. Me encantará verlo y darte feedback.
+
+links 
+
+
+https://github.com/platzi/python-fundamentos/commit/ccc80b620ee194246beb0620da97e54228114e86
+
+https://github.com/platzi/python-fundamentos/blob/master/asignacion-multiple/asignacion-multiple.py
+
+
+----------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+
+# 9 Tipos de datos en Python explicados
+
+
+
+Curso de Fundamentos de Python
+Tipos de datos en Python explicados
+Curso de Fundamentos de Python
+
+Recursos
+
+Tipos de Datos · platzi/python-fundamentos@63a7422 · GitHub
+
+python-fundamentos/tipo-de-datos/tipo-datos.py at master · platzi/python-fundamentos · GitHub
+Resumen
+Conocer los tipos de datos en Python es el primer paso para escribir programas que hagan exactamente lo que necesitas. Cada tipo tiene una función específica y elegir el correcto te ahorra errores y líneas de código innecesarias.
+
+Aquí vas a descubrir cómo se declaran textos, números, listas, tuplas, diccionarios, conjuntos y booleanos, con la sintaxis exacta y los matices que diferencian a cada uno.
+
+¿Cómo se escriben los strings en Python?
+
+Los strings son cadenas de caracteres, es decir, variables de tipo texto. En Python tienes tres formas válidas de declararlos y todas funcionan igual al imprimirse en la terminal.
+
+Comillas simples: 'Este es un texto'.
+Comillas dobles: "Este es un texto".
+Comillas triples: '''Este es un texto''' o """Este es un texto""".
+La regla con las comillas triples es sencilla: tomas el carácter de comilla simple o doble y lo repites tres veces seguidas. Las tres formas conviven sin problema y puedes elegir la que prefieras según el contenido del texto que estés guardando.
+
+¿Cuándo conviene usar comillas triples en Python? Cuando tu texto incluye saltos de línea o contiene comillas simples y dobles dentro. Las triples evitan que tengas que escapar caracteres.
+
+¿Qué tipos de números existen en Python?
+
+Python maneja tres tipos numéricos principales y cada uno tiene una sintaxis propia [02:00].
+
+Enteros: a = 5. Son números sin decimales.
+Flotantes: b = 3.14. Aquí Python usa el punto como separador decimal, no la coma, aunque en varios países de Latinoamérica estés acostumbrado a usar coma.
+Complejos: c = 5 + 2j. La letra j representa la parte imaginaria.
+Si vienes de las matemáticas tradicionales, los números complejos pueden parecerte raros al inicio. No te preocupes: lo importante ahora es saber que existen y cómo asignarlos.
+
+¿Cuál es la diferencia entre listas, tuplas y diccionarios?
+
+Las tres son colecciones, pero se comportan distinto. Entender sus diferencias te permite elegir la estructura correcta según necesites modificar datos, mantener orden o asociar claves con valores.
+
+Listas: ordenadas y mutables
+
+Una lista es una colección ordenada y mutable donde cada elemento tiene una posición llamada índice. La declaras con corchetes [03:30].
+
+python lista = [0, 1, 2, 3, 4, 5]
+
+Que sea ordenada significa que cada número conserva su posición fija. Que sea mutable significa que puedes modificarla cuantas veces quieras después de crearla.
+
+Tuplas: ordenadas pero inmutables
+
+Una tupla también es una colección ordenada con índice, pero no puedes cambiar sus elementos una vez creada. Se declara con paréntesis [04:30].
+
+python tupla = ('a', 'b', 'c')
+
+¿Cuál es la diferencia entre una lista y una tupla? Ambas son ordenadas y tienen índice, pero la lista es mutable y la tupla es inmutable. Si tus datos no deben cambiar, usa tupla.
+
+Diccionarios: pares clave-valor mutables
+
+En otros lenguajes los conoces como objetos literales. En Python son diccionarios: una colección ordenada de pares clave-valor que sí puedes modificar [05:30]. El orden está garantizado a partir de Python 3.7, antes no lo estaba.
+
+La sintaxis usa llaves y separa cada clave de su valor con dos puntos, lo que te permite acceder a la información mediante la clave en lugar de un índice numérico.
+
+¿Cómo funcionan los conjuntos y los booleanos?
+
+Estos dos tipos cierran el panorama básico y resuelven problemas muy concretos: eliminar duplicados y representar verdadero o falso.
+
+Conjuntos sin elementos repetidos
+
+Los conjuntos o sets son colecciones desordenadas y mutables, pero con una característica única: no admiten elementos repetidos [07:00].
+
+python conjunto = {1, 1, 2, 2, 3} print(conjunto) # output: {1, 2, 3}
+
+Los duplicados se ignoran automáticamente. Como es desordenado, no puedes acceder a un elemento por índice ni modificarlo por posición, porque ninguna posición está garantizada.
+
+Booleanos: True o False
+
+Un booleano solo toma dos valores: True o False, siempre con la primera letra en mayúscula [08:30]. Aunque parezcan simples, son la base de los flujos condicionales en cualquier programa Python.
+
+python booleano_verdadero = True booleano_falso = False
+
+¿Para qué se usan los booleanos en Python? Para tomar decisiones dentro del código. Cuando una condición se evalúa, devuelve True o False y el programa elige qué camino seguir.
+
+Con estos siete tipos de datos ya tienes el vocabulario base de Python. ¿Cuál crees que vas a usar primero en tu próximo proyecto? Cuéntame en los comentarios.
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/63a742291e7fe3cb4a6e3b5fb136896dfd65ca9a
+
+https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/tipo-datos.py
+
+------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
 
 
 
