@@ -1,0 +1,647 @@
+
+# 1 : Por qué Instagram y NASA eligieron Python
+
+
+Python está en todas partes: Instagram maneja millones de usuarios, la NASA analiza datos de ciencias espaciales y Spotify recomienda tu siguiente canción. Su mayor fuerza es la simpleza: con tres palabras ya puedes saludar al mundo y ejecutar un programa. Aquí verás por qué su claridad lo hace tan poderoso y qué aprenderás: variables, booleanos, decisiones con if y else, y automatizaciones con bucles, todo con el respaldo de una comunidad gigante.
+
+¿Por qué Python está en todas partes?
+
+Python funciona en ciencia, redes sociales y entretenimiento. Esa versatilidad se apoya en su sintaxis parecida al inglés y en una curva de aprendizaje amable. Permite concentrarse en la lógica y en resolver problemas, en lugar de perder tiempo con reglas complejas.
+
+¿Qué lo hace simple y poderoso?
+
+Es un lenguaje de alto nivel. Permite pensar en soluciones, no en detalles de bajo nivel.
+Su sintaxis es intuitiva y clara. Ahorra horas de aprendizaje de reglas.
+Favorece empezar rápido: de un "hola, mundo" a proyectos reales.
+¿Qué se puede crear con Python?
+
+Análisis de datos genómicos.
+Predicción del clima.
+Entrenamiento de redes neuronales.
+Esa amplitud explica por qué tantas personas que recién arrancan y también empresas enormes lo eligen. Python es conocido como el lenguaje de la ciencia por su impacto en datos y modelos.
+
+¿Qué aprenderás paso a paso?
+
+Vas a cubrir fundamentos clave para construir desde cero y automatizar tareas. Todo orientado a pensar con lógica y tomar decisiones en tu código.
+
+Variables para manejar información.
+Booleanos para expresar verdadero o falso.
+Decisiones con if y else para controlar el flujo.
+Automatizaciones con bucles para repetir acciones.
+¿Cómo se ve tu primer programa?
+
+Con apenas tres palabras ya tienes algo funcionando. Así se imprime un saludo en pantalla:
+
+
+print("Hola, mundo")
+
+
+Ese primer print abre la puerta a automatizar procesos y a proyectos más ambiciosos.
+
+¿Qué papel tiene la comunidad de Python?
+
+No estás solo. Una comunidad gigantesca mantiene bibliotecas que van desde estadística avanzada hasta visión por computadora. Esto acelera el aprendizaje, multiplica ejemplos y facilita llevar ideas a producción.
+
+¿Cómo te impulsa a crecer?
+
+Lo que empieza con un print: «Hola, mundo» puede terminar en un proyecto que cambia la forma en la que vivimos. Avanzas con apoyo, recursos y soluciones compartidas por miles de desarrolladores.
+
+¿Qué te entusiasma construir con Python? Comparte tus dudas o ideas en los comentarios y sigamos la conversación.
+
+
+links :
+
+https://github.com/platzi/python-fundamentos/commit/6ba7f9cf16a3d00603640b88f18c5f83942a6734
+
+https://github.com/platzi/python-fundamentos
+
+
+https://github.com/platzi/python-fundamentos/blob/master/README.md
+
+
+------------------------------------------------------------------------------------------------------
+
+#2 Instalación de Python, VS Code y Git
+
+
+Antes de escribir tu primera línea de código, necesitas dejar listo el entorno. Aquí aprendes cómo instalar Python, Visual Studio Code, Chrome y Git en Windows, Linux o Mac, con la configuración correcta para que todo funcione desde la primera clase. Es la base que cualquier persona que arranca en programación necesita tener resuelta.
+
+¿Qué softwares necesitas para empezar el curso de Python?
+
+Son cuatro herramientas que trabajan juntas. Cada una cumple un rol específico y conviene instalarlas en el orden correcto para evitar fricciones después.
+
+Chrome: el navegador con el que vas a seguir el curso y consultar documentación.
+Visual Studio Code: el editor de código donde escribirás tus programas en Python.
+Python: el lenguaje en sí, en su versión más reciente disponible.
+Git: el manejador de versiones que te permite guardar y compartir tu código.
+El repositorio del curso en GitHub centraliza todos los enlaces de descarga y la documentación, así que tenlo abierto mientras avanzas [0:30].
+
+¿Cómo instalar Visual Studio Code con la configuración correcta?
+
+Visual Studio Code es un editor liviano que, con extensiones, se vuelve perfecto para Python. La descarga detecta tu sistema operativo: la primera opción es para Windows, la segunda para Linux y la tercera para Mac [1:20].
+
+Durante la instalación aparecen varios checkboxes y dos son los que realmente importan:
+
+Registrar Code como editor: permite abrir cualquier archivo soportado con clic derecho.
+Add to PATH: agrega VS Code a las variables de entorno para que esté disponible desde cualquier terminal.
+¿Qué significa agregar al PATH? Es registrar el programa dentro de las variables de entorno del sistema operativo, para que puedas invocarlo escribiendo su nombre desde cualquier terminal sin importar la carpeta en la que estés.
+
+Los íconos de escritorio y los menús contextuales son opcionales. Lo demás puedes dejarlo desactivado sin problema [2:10].
+
+¿Cómo instalar Python y agregarlo al PATH en Windows?
+
+La página oficial autodetecta tu sistema y te muestra el botón de descarga con la versión más reciente, que al momento de grabar la clase es Python 3.13.7 [3:30]. Si ves un número distinto, no te preocupes: el proceso es idéntico porque las actualizaciones salen cada pocas semanas.
+
+Al abrir el instalador, antes de presionar Install Now, activa estos dos checkboxes:
+
+Add Python to PATH: agrega python.exe a las variables de entorno de Windows, para que Python esté disponible en todas las terminales.
+Privilegios de administrador para py.exe: el ejecutador de Python correrá con permisos elevados cuando lo necesites.
+**¿Por qué es tan importante marcar Add Python to PATH? **Porque sin esa opción, al escribir python en la terminal el sistema no encontrará el ejecutable y tendrás errores constantes que se solucionan reinstalando o configurando manualmente las variables.
+
+Una vez instalado, cierra el instalador y pasa al siguiente paso [4:40].
+
+¿Para qué sirve Git y cómo instalarlo?
+
+Git es la tecnología para el manejo de versiones de tu código. GitHub, en cambio, es la plataforma donde se alojan los repositorios online, incluido el repositorio del curso con toda la documentación que vas a consultar.
+
+La instalación es directa: la web detecta tu sistema operativo, descargas el instalador y presionas Install sin tocar opciones avanzadas [5:30].
+
+¿Necesito saber Git para este curso de Python? No es obligatorio, pero es una skill clave en programación. El curso de Git y GitHub de Platzi te enseña a manejar versiones de forma fluida y a colaborar en proyectos reales.
+
+¿Qué extensiones de VS Code conviene tener para Python?
+
+En el repositorio del curso encontrarás una lista de extensiones recomendadas para Visual Studio Code orientadas a Python. No hace falta instalarlas una por una desde el inicio, porque más adelante vas a configurar un perfil específico de Python en VS Code que carga muchas automáticamente.
+
+Con Chrome, VS Code, Python y Git instalados ya tienes la base lista. ¿Qué sistema operativo estás usando para seguir el curso? Cuéntame en los comentarios si tuviste algún detalle al instalar alguna de estas herramientas.
+
+
+links:
+
+https://github.com/platzi/python-fundamentos/commit/6e1a73497207e2fc232712cf5eae46f0a190eb3a
+
+https://github.com/platzi/python-fundamentos/blob/master/instalaciones-necesarias.md
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+# 3 Variables de entorno de Python en Windows
+
+Configurar las variables de entorno de Python en Windows es el paso que te permite ejecutar Python desde cualquier carpeta o terminal del sistema. Si marcaste la casilla Add to Path durante la instalación, ya tienes medio camino recorrido; lo que sigue es entender qué hace esa configuración y cómo revisarla.
+
+¿Qué son las variables de entorno y por qué importan en Python?
+
+Las variables de entorno son rutas que el sistema operativo guarda para saber dónde buscar programas cuando los llamas desde la terminal. Cuando instalas Python con la opción Add to Path activada, el instalador agrega automáticamente las carpetas necesarias para que escribir python en cualquier PowerShell o consola funcione sin errores.
+
+¿Qué hace la opción Add to Path al instalar Python? Agrega las carpetas de Python a la variable Path del sistema, lo que permite ejecutar Python desde cualquier directorio sin escribir la ruta completa.
+
+Sin esta configuración tendrías que navegar hasta la carpeta exacta donde vive el ejecutable cada vez que quisieras correr un script. Y eso, en la práctica, es un dolor de cabeza.
+
+¿Cómo abrir las variables de entorno en Windows paso a paso?
+
+El acceso es directo desde el menú Inicio y funciona igual en español o inglés, solo cambia el nombre del resultado.
+
+Abre el menú Inicio y escribe la palabra variable.
+Selecciona la primera opción que aparezca: Variables de entorno o, si tu sistema está en inglés, Edit the system environment variables.
+En la ventana que se abre, haz clic en el botón que permite editar las variables de entorno.
+Al entrar verás dos secciones bien diferenciadas, y conviene saber qué hace cada una antes de tocar nada.
+
+¿Cuál es la diferencia entre variables de usuario y variables del sistema?
+
+La ventana de configuración divide las variables en dos bloques con alcances distintos:
+
+Variables de usuario: están en el sector de arriba y aplican únicamente al usuario actual de la computadora.
+Variables del sistema: están en el sector de abajo y aplican a todos los usuarios que usen ese equipo.
+La instalación de Python suele agregar sus rutas a la variable llamada Path, que es la que el sistema consulta para localizar ejecutables.
+
+¿Dónde queda registrado Python en las variables de entorno? En la variable Path, donde se agregan las carpetas del intérprete y de los scripts de Python para que estén disponibles en cualquier terminal.
+
+¿Cómo verificar que Python quedó bien configurado en el Path?
+
+Una vez dentro de la ventana de variables, haz doble clic sobre la línea que dice Path. Vas a ver un listado largo de rutas, y entre ellas deberían aparecer dos líneas relacionadas con Python: una apunta al intérprete y otra a la carpeta de scripts.
+
+Esa es la señal de que la instalación quedó bien. Para confirmarlo en la práctica, abre una PowerShell o terminal nueva y escribe:
+
+powershell python
+
+Si el comando responde abriendo el intérprete interactivo de Python, la configuración está lista. Si en cambio aparece un error tipo command not found, significa que la ruta no está agregada al Path y deberás añadirla manualmente desde esta misma ventana.
+
+¿Por qué Python funciona en cualquier carpeta después de configurar el Path?
+
+Porque al estar registrado en las variables de entorno, el sistema ya no necesita que le indiques dónde está el ejecutable. Lo busca automáticamente en cada una de las rutas listadas en Path, sin importar desde qué directorio abras la terminal.
+
+Eso convierte a Python en una herramienta accesible desde cualquier punto del sistema, lo que facilita ejecutar scripts, instalar paquetes con pip y trabajar en proyectos ubicados en carpetas distintas.
+
+Cuéntame en los comentarios si te apareció Python en el Path al revisar tus variables de entorno o si tuviste que agregarlo manualmente.
+
+--------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+# 4  Comandos básicos de Python en la terminal de Windows
+
+
+Aprendé a ejecutar Python en Windows desde PowerShell con pasos claros y seguros. En minutos, vas a verificar tu instalación, crear y correr un archivo .py, usar la instrucción print y experimentar en la terminal interactiva. Todo con buenas prácticas como el uso del tabulador y el enfoque en las variables de entorno.
+
+¿Cómo abrir PowerShell y comprobar Python en Windows?
+
+Con la terminal lista, vas a confirmar que Python responde correctamente y que las variables de entorno están bien configuradas. Esto asegura que puedas ejecutar comandos desde cualquier carpeta del sistema.
+
+¿Dónde abrir PowerShell en Windows?
+
+Mantené Shift, clic derecho y elegí Open PowerShell Window here.
+O abrí Inicio, buscá PowerShell y ejecutalo.
+¿Qué muestra el comando python-version?
+
+Escribí: python-version.
+Verás la versión instalada de Python.
+Si responde en cualquier carpeta, es gracias a las variables de entorno.
+¿Por qué importan las variables de entorno?
+
+Permiten ejecutar Python desde cualquier ruta.
+Evitan errores al correr scripts.
+Aceleran tu flujo de trabajo.
+¿Cómo crear, editar y ejecutar un archivo .py desde la terminal?
+
+Vas a crear un archivo básico, escribir el clásico "Hola, mundo" y ejecutarlo desde PowerShell. Además, aprovecharás el autocompletado con el tabulador para no escribir de más.
+
+¿Cómo crear el archivo con new item?
+
+En PowerShell, escribí:
+
+new item "básico.py"
+
+
+Recordá: la extensión de Python es .py.
+El archivo aparece en tu escritorio.
+¿Cómo editarlo en Bloc de notas y escribir print?
+
+Abrí el Bloc de notas y arrastrá el archivo adentro.
+Escribí la instrucción más básica de Python:
+
+print("Hola, mundo")
+
+
+Guardá con File, Save.
+¿Cómo ejecutarlo y usar el tabulador?
+
+En PowerShell, corré el script:
+
+
+Python básico.py
+
+
+Si no recordás el nombre, escribí el inicio y presioná el tabulador para autocompletar.
+Al ejecutar, verás en la terminal: Hola, mundo.
+¿Cómo usar la terminal de Python para probar instrucciones?
+
+También podés abrir la terminal interactiva de Python (REPL) para probar ideas al instante: imprimir textos, hacer cuentas y salir cuando quieras.
+
+¿Qué es la terminal de Python y para qué sirve?
+
+Escribí en PowerShell:
+
+
+Python
+
+
+Verás el prompt interactivo de Python.
+Te permite probar código sin crear archivos.
+¿Cómo realizar operaciones y probar instrucciones?
+
+Repetí el famoso Hola, mundo:
+
+
+print("Hola, mundo")
+
+
+Hacé una suma simple:
+
+
+3 + 2
+
+Verás el resultado inmediato.
+¿Cómo cerrar la sesión interactiva?
+
+Escribí para salir:
+
+exit()
+
+Volvés a la terminal de Windows.
+¿Probaste estos pasos y creaste tu primer script? Contame en los comentarios qué te salió, qué atajos usaste y qué te gustaría practicar a continuación. ¡Seguimos construyendo desde acá!
+
+
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+# 5 Sintaxis e indentación básica en Python con Visual Studio Code
+
+Domina la sintaxis e indentación en Python mientras configuras Visual Studio Code para trabajar cómodo y sin errores. Aprenderás a crear tu entorno, entender los bloques de código y ejecutar tu primer programa con un par de clics.
+
+¿cómo configurar Visual Studio Code para Python sin complicaciones?
+
+Configurar un entorno dedicado evita errores y acelera tu práctica diaria. Visual Studio Code permite crear un perfil de Python con extensiones clave para ejecutar y analizar tu código sin fricción.
+
+¿qué perfil de Python y extensiones necesitas?
+
+Abre la ruedita de configuración, busca “profile” y entra a profiles.
+Crea un new profile. Nómbralo “Python”.
+Usa la opción copy from para elegir el perfil sugerido de Python y pulsa create.
+Verás el perfil activo con el ícono de la serpiente.
+Extensiones instaladas: Python, Pylance y Jupyter. Facilitan entender el lenguaje, análisis estático y ejecución por pasos.
+¿cómo crear el archivo sintaxis.py con extensión .py?
+
+Crea la carpeta “Sintaxis, indentación” y arrástrala a VS Code.
+Crea el archivo: sintaxis.py.
+Recuerda la regla: la extensión .py es imprescindible para que VS Code trate el archivo como Python.
+¿qué hace el botón Run Python File?
+
+Una vez activo el perfil, aparecerá el botón Run Python File.
+Ejecuta el archivo actual automáticamente en la terminal integrada.
+Verás la salida del programa sin configurar nada extra.
+¿qué es la sintaxis e indentación en Python y cómo se usan?
+
+La sintaxis son las reglas que Python entiende como instrucciones. La indentación es parte de esa sintaxis: son los espacios o tabulaciones que agrupan líneas en un bloque de código. Sin indentación correcta, Python no entiende el programa.
+
+¿cómo escribir un if y un print correctos?
+
+Regla básica: termina la condición con “:”, pulsa Enter e indenta el bloque.
+Ejemplo válido con if y print:
+
+
+
+
+Curso de Fundamentos de Python
+Sintaxis e indentación básica en Python con Visual Studio Code
+Curso de Fundamentos de Python
+
+Progreso del curso
+
+18% completado
+Primeros Pasos con Python
+1
+Por qué Instagram y NASA eligieron Python
+Por qué Instagram y NASA eligieron Python
+Completado
+2
+Instalación de Python, VS Code y Git
+Instalación de Python, VS Code y Git
+Completado
+3
+Variables de entorno de Python en Windows
+Variables de entorno de Python en Windows
+Completado
+4
+Comandos básicos de Python en la terminal de Windows
+Comandos básicos de Python en la terminal de Windows
+Completado
+5
+Sintaxis e indentación básica en Python con Visual Studio Code
+Sintaxis e indentación básica en Python con Visual Studio Code
+Viendo ahora
+6
+Comentarios en Python: una y multilínea
+Comentarios en Python: una y multilínea
+Completado
+7
+Variables en Python: reglas y convenciones
+Variables en Python: reglas y convenciones
+09:25 min
+8
+Asignación múltiple de variables en Python
+Asignación múltiple de variables en Python
+04:55 min
+9
+Tipos de datos en Python explicados
+Tipos de datos en Python explicados
+10:41 min
+10
+Manipulación y conversión de tipos numéricos en Python
+Manipulación y conversión de tipos numéricos en Python
+08:23 min
+11
+Métodos esenciales para strings en Python
+Métodos esenciales para strings en Python
+10:36 min
+12
+Slicing, replace y split para manipular strings en Python
+Slicing, replace y split para manipular strings en Python
+10:26 min
+13
+Booleanos en Python: True, False y casting
+Booleanos en Python: True, False y casting
+05:45 min
+14
+None en Python no es cero ni vacío
+None en Python no es cero ni vacío
+02:07 min
+Lógica de Programación y Control de Flujo
+15
+Operadores aritméticos en Python explicados
+Operadores aritméticos en Python explicados
+09:00 min
+16
+Operadores de asignación y walrus en Python
+Operadores de asignación y walrus en Python
+06:03 min
+17
+Operadores lógicos y de comparación en Python
+Operadores lógicos y de comparación en Python
+09:32 min
+18
+Condicionales en Python: if, else, and, or y pass
+Condicionales en Python: if, else, and, or y pass
+11:32 min
+19
+Sentencia match en Python 3.10 para control de flujo
+Sentencia match en Python 3.10 para control de flujo
+03:27 min
+20
+Bucles while en Python: condiciones, break y continue
+Bucles while en Python: condiciones, break y continue
+Completado
+21
+Bucle for en Python para recorrer listas
+Bucle for en Python para recorrer listas
+Completado
+Estructuras de Datos Fundamentales
+22
+Métodos esenciales de listas en Python
+Métodos esenciales de listas en Python
+14:01 min
+23
+Tuplas en Python: ordenadas e inmutables
+Tuplas en Python: ordenadas e inmutables
+09:55 min
+24
+Conjuntos en Python: qué son y cómo usarlos
+Conjuntos en Python: qué son y cómo usarlos
+14:01 min
+25
+Diccionarios en Python: claves y valores
+Diccionarios en Python: claves y valores
+15:15 min
+Modularización del Código
+26
+Funciones en Python para reutilizar código
+Funciones en Python para reutilizar código
+09:51 min
+27
+Funciones lambda y fábrica de funciones en Python
+Funciones lambda y fábrica de funciones en Python
+06:39 min
+28
+Cómo usar módulos en Python
+Cómo usar módulos en Python
+02:51 min
+Manejo de Errores y Archivos
+29
+Manejo de errores con try, except y finally en Python
+Manejo de errores con try, except y finally en Python
+05:43 min
+30
+Leer y escribir archivos de texto en Python
+Leer y escribir archivos de texto en Python
+12:14 min
+Trabajo Práctico Final
+31
+Máquina de café en Python paso a paso
+Máquina de café en Python paso a paso
+09:56 min
+32
+Escritura y lectura de archivos en Python
+Escritura y lectura de archivos en Python
+14:49 min
+Recursos
+
+Clase sintaxis indentación · platzi/python-fundamentos@99c6988 · GitHub
+
+python-fundamentos/sintaxis-indentacion/sintaxis.py at master · platzi/python-fundamentos · GitHub
+Resumen
+Domina la sintaxis e indentación en Python mientras configuras Visual Studio Code para trabajar cómodo y sin errores. Aprenderás a crear tu entorno, entender los bloques de código y ejecutar tu primer programa con un par de clics.
+
+¿cómo configurar Visual Studio Code para Python sin complicaciones?
+
+Configurar un entorno dedicado evita errores y acelera tu práctica diaria. Visual Studio Code permite crear un perfil de Python con extensiones clave para ejecutar y analizar tu código sin fricción.
+
+¿qué perfil de Python y extensiones necesitas?
+
+Abre la ruedita de configuración, busca “profile” y entra a profiles.
+Crea un new profile. Nómbralo “Python”.
+Usa la opción copy from para elegir el perfil sugerido de Python y pulsa create.
+Verás el perfil activo con el ícono de la serpiente.
+Extensiones instaladas: Python, Pylance y Jupyter. Facilitan entender el lenguaje, análisis estático y ejecución por pasos.
+¿cómo crear el archivo sintaxis.py con extensión .py?
+
+Crea la carpeta “Sintaxis, indentación” y arrástrala a VS Code.
+Crea el archivo: sintaxis.py.
+Recuerda la regla: la extensión .py es imprescindible para que VS Code trate el archivo como Python.
+¿qué hace el botón Run Python File?
+
+Una vez activo el perfil, aparecerá el botón Run Python File.
+Ejecuta el archivo actual automáticamente en la terminal integrada.
+Verás la salida del programa sin configurar nada extra.
+¿qué es la sintaxis e indentación en Python y cómo se usan?
+
+La sintaxis son las reglas que Python entiende como instrucciones. La indentación es parte de esa sintaxis: son los espacios o tabulaciones que agrupan líneas en un bloque de código. Sin indentación correcta, Python no entiende el programa.
+
+¿cómo escribir un if y un print correctos?
+
+Regla básica: termina la condición con “:”, pulsa Enter e indenta el bloque.
+Ejemplo válido con if y print:
+if 5 > 3:     print("cinco es mayor que tres")
+
+VS Code puede sugerirte la línea con Copilot.
+Al ejecutar con Run Python File verás: “cinco es mayor que tres”.
+¿qué ocurre si rompes la indentación?
+
+Si eliminas la tabulación del bloque, el editor subraya en rojo.
+Al ejecutar, obtendrás un error de sintaxis por indentación en la línea del bloque.
+Código con indentación incorrecta:
+
+if 5 > 3: print("cinco es mayor que tres")
+
+Si agregas más de una tabulación, el código puede correr, pero no sigue el estándar del equipo y causa confusión. Lo recomendable es una tabulación por nivel de bloque.
+¿cómo indentar if anidados y varias instrucciones?
+
+Un if dentro de otro if requiere un nivel adicional de tabulación.
+Ejemplo con bloque interno y una instrucción al mismo nivel del bloque externo:
+if 5 > 3:     if 5 > 3:         print("Cinco es mayor que tres")  # if interno     print("Cuatro es mayor que tres")      # if externo
+
+Regla práctica: cada nuevo bloque aumenta una tabulación. Mantén la alineación para que cualquiera pueda leer tu código.
+
+
+
+¿qué habilidades prácticas aplicas hoy en Python?
+
+Crear un entorno y respetar reglas de estilo te prepara para colaborar y evitar errores.
+
+Configuración del entorno con profiles en Visual Studio Code.
+Instalación y uso de Python, Pylance y Jupyter en extensions.
+Creación del archivo sintaxis.py con extensión .py.
+Comprensión de sintaxis: uso correcto de “:”, bloques y líneas válidas.
+Dominio de indentación: tabulación para agrupar bloques y evitar errores.
+Escritura de condiciones con if y salida por print.
+Ejecución con Run Python File y lectura de la salida en la terminal.
+Identificación de errores de sintaxis por indentación y corrección inmediata al alinear.
+Buenas prácticas de equipo: una tabulación por nivel para claridad.
+¿Te quedó alguna duda sobre la indentación o la configuración en Visual Studio Code? Comenta tu pregunta y continúa practicando con tus propios ejemplos.
+
+
+
+links:
+
+https://github.com/platzi/python-fundamentos/commit/99c6988ed2db7a26dbeacd941febcd03f83bc283
+
+https://github.com/platzi/python-fundamentos/blob/master/sintaxis-indentacion/sintaxis.py
+
+
+-----------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------
+
+# 6 Comentarios en Python: una y multilínea
+
+
+Comentar código en Python es una de las primeras habilidades que necesitas dominar para escribir programas legibles, colaborativos y fáciles de mantener. Aquí aprenderás cómo usar comentarios de una línea, multilínea y cómo desactivar instrucciones temporalmente, todo con ejemplos directos del intérprete de Python.
+
+Para qué sirven los comentarios en Python
+
+Los comentarios cumplen tres funciones que vas a usar todo el tiempo cuando programes. No son decoración: son parte del flujo de trabajo real.
+
+Hacer tu código más fácil de leer para ti y para tu equipo.
+Desactivar líneas que no quieres ejecutar en un momento puntual.
+Explicar qué hace una instrucción específica para quien lea el archivo después.
+Cuando escribes una línea suelta como Esta es una línea de código, Python la marca en amarillo y rojo porque interpreta que está mal escrita. Apenas le agregas el símbolo correcto al inicio, la línea se pone verde y desaparece el error.
+
+¿Qué es un comentario en Python? Es una línea de texto que el intérprete ignora durante la ejecución. Sirve para documentar, explicar o desactivar código sin borrarlo.
+
+Cómo hacer un comentario de una sola línea
+
+La forma más común usa el numeral, también llamado hashtag, al inicio de la línea. Todo lo que escribas después de ese símbolo queda fuera de la ejecución.
+
+Si creas un archivo con extensión .py y dentro pones una línea comentada seguida de un print("Hola Mundo"), al ejecutar con Run Python File la terminal solo mostrará Hola Mundo. La línea comentada no tiene ningún impacto.
+
+También puedes comentar después de una instrucción, en la misma línea. Es un patrón muy popular para explicar qué hace ese fragmento:
+
+python print("Hola Mundo") # imprime Hola Mundo en la terminal
+
+Python ejecuta el print con normalidad y omite todo lo que viene después del numeral.
+
+Cómo escribir un comentario multilínea
+
+Cuando necesitas explicar algo más extenso, tienes dos caminos. Y los dos funcionan bien según el estilo que prefieras.
+
+Numeral en cada línea
+
+Pones un numeral al inicio de cada renglón. Es la forma más explícita y la que muchos equipos prefieren porque deja claro que cada línea es un comentario independiente.
+
+python
+
+Este es un comentario
+
+que ocupa varias líneas
+
+y Python lo ignora completo
+
+Comillas triples
+
+La otra opción son las comillas triples al inicio y al final del bloque. Todo lo que pongas en medio queda fuera de la ejecución.
+
+python """ Este será un comentario multilínea que puede tener el largo que quieras """ print("Hola Mundo")
+
+Al guardar y ejecutar, la terminal solo muestra Hola Mundo. El bloque entre comillas triples queda ignorado.
+
+¿Cuál es la diferencia entre usar numeral y comillas triples? El numeral es un comentario puro y se usa línea por línea. Las comillas triples son técnicamente un string que Python no asigna a nada, por eso funcionan como comentario en bloque.
+
+Cómo desactivar una instrucción de Python con comentarios
+
+Esta es probablemente la razón más práctica para usar comentarios en el día a día. Imagina que tienes esta instrucción:
+
+python print("Esta línea deseo ignorarla")
+
+Al ejecutar, aparece en la terminal junto con el resto del programa. Pero si le agregas un numeral al inicio, Python la salta sin borrarla del archivo:
+
+python
+
+print("Esta línea deseo ignorarla")
+
+¿Por qué querrías ignorar una instrucción si estás trabajando en Python? Hay dos escenarios típicos: cuando esa línea genera un error y necesitas aislarla para depurar, o cuando estás probando partes específicas del código y quieres desactivar otras temporalmente sin perder lo escrito.
+
+Es una técnica que vas a usar constantemente cuando empieces a construir programas más grandes.
+
+Cuándo conviene comentar y cuándo no
+
+Comentar de más también ensucia el código. La idea no es narrar cada línea, sino aclarar lo que no se entiende a simple vista.
+
+Comenta cuando una instrucción tiene una intención que no es obvia.
+Comenta cuando desactivas código temporalmente para pruebas o debugging.
+Comenta para dejar contexto a quien revise el archivo después de ti.
+Evita comentar lo que ya dice el propio código de forma evidente.
+Una buena práctica es escribir el comentario pensando en tu yo del futuro o en alguien que abre el archivo por primera vez. Si esa persona entiende rápido, el comentario cumplió su trabajo.
+
+Ahora te toca a ti: en la caja de comentarios de Platzi puedes seleccionar la opción de código, elegir Python y dejar un comentario de una línea y otro multilínea. ¿Te animas a compartirlo?
+
+
+
+links:
+
+https://github.com/platzi/python-fundamentos/commit/943017b7516898956391514a5d4b66f7cdf7c41b
+
+https://github.com/platzi/python-fundamentos/blob/master/comentarios/comentarios.py
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
