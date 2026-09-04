@@ -851,6 +851,145 @@ https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/tipo-dato
 ------------------------------------------------------------------------------
 -----------------------------------------------------------------------------
 
+# 10 Manipulación y conversión de tipos nuemricos en python
+
+Aprende a manejar números en Python con precisión: identifica tipos con type, convierte con float, int y complex, y genera aleatorios con random.randrange. Con estos fundamentos evitarás pérdidas de datos por truncado y entenderás por qué el límite superior no se incluye.
+
+¿Qué tipos de números en Python y cómo identificarlos?
+
+Python trabaja con enteros, flotantes y complejos. Los enteros y flotantes aceptan valores positivos y negativos, y los complejos usan la letra j para la parte imaginaria. La función type permite verificar el tipo exacto.
+
+Enteros y flotantes: positivos y negativos.
+Complejos: parte real y parte imaginaria con j.
+Verificación de tipo con type.
+Nombres en inglés: integer, float y complex.
+# Tipos numéricos y verificación x = 1          # entero y = 2.5        # flotante z = 5 + 1j     # complejo (parte real 5, parte imaginaria 1j)  print(type(x))  # <class 'int'> print(type(y))  # <class 'float'> print(type(z))  # <class 'complex'>
+
+¿Cómo se representan los complejos en Python?
+
+La parte real se escribe normal y la imaginaria con j.
+Ejemplos válidos: 5 + 1j, -5 - 1j.
+Se aceptan combinaciones con signos positivos y negativos.
+¿Cómo castear números sin perder datos?
+
+El casteo obliga a una variable a comportarse como otro tipo. Pasar de entero a flotante agrega la parte decimal .0. Pasar de flotante a entero trunca el valor, lo cual puede ser riesgoso si trabajas con datos sensibles.
+
+# Entero a flotante: agrega .0 x = 1 xf = float(x) print(type(xf))  # <class 'float'> print(xf)        # 1.0  # Flotante a entero: trunca y = 2.5 ye = int(y) print(type(ye))  # <class 'int'> print(ye)        # 2  # cuidado: se pierde la parte decimal
+
+¿Qué precauciones tomar al convertir tipos?
+
+De float a int se pierde información por truncado.
+Evita castear a entero si el decimal importa.
+Verifica con type antes y después del casteo.
+¿Cómo trabajar con complejos y convertir desde int o float?
+
+Se puede convertir de entero y flotante a complejo usando complex. La parte imaginaria se completa con 0j por defecto. El camino inverso (de complejo a entero o flotante) no está disponible.
+
+entero = 5 flotante = 5.5  entero_complejo = complex(entero) flotante_complejo = complex(flotante)  print(entero_complejo, type(entero_complejo))     # (5+0j) <class 'complex'> print(flotante_complejo, type(flotante_complejo)) # (5.5+0j) <class 'complex'>
+
+¿Qué limitaciones existen al convertir complejos?
+
+De int/float a complex: permitido con complex.
+De complex a int/float: no permitido.
+La parte imaginaria agregada es 0j cuando no se especifica.
+¿Cómo generar números aleatorios con random?
+
+Para obtener números aleatorios, importa el módulo random y usa random.randrange. El límite superior no se incluye: randrange(1, 10) devuelve valores entre 1 y 9.
+
+import random  print(random.randrange(1, 10))  # entero aleatorio entre 1 y 9
+
+¿Qué debes recordar de randrange?
+
+Incluye el inicio, excluye el fin.
+Ejecuta varias veces para ver resultados distintos.
+Útil para aplicaciones como juegos que requieren aleatoriedad.
+¿Te quedó alguna duda o tienes un caso de uso concreto? Cuéntalo en los comentarios y probamos el código juntos.
+
+links : 
+
+https://github.com/platzi/python-fundamentos/commit/8e88e9b960b8c4b8113b7f70e5ca86a702cca748
+
+
+https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/numeros.py
+
+--------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+# 11 Métodos esenciales para strings en Python
+
+Resumen
+Trabajar con strings en Python es uno de los pilares para cualquier persona que empieza a programar. Aquí aprenderás a manejar comillas, contar caracteres, verificar inclusiones y transformar texto con métodos esenciales como len, in, upper, lower y strip, todo desde el comportamiento real del lenguaje.
+
+¿Cómo usar comillas dentro de un string en Python?
+
+Cuando intentas escribir un texto que ya contiene comillas, Python lanza un syntax error. La solución está en combinar tipos de comillas según el caso.
+
+Si tu texto lleva comillas dobles por dentro, envuélvelo con comillas simples. Si lleva comillas simples (como en frases en inglés del tipo I'm Sergi), envuélvelo con dobles. Esta lógica de alternar comillas evita romper la sintaxis y mantiene el string legible [01:00].
+
+¿Qué hago si mi texto tiene apóstrofes y comillas dobles a la vez? Usa comillas triples """ """. Te permiten incluir ambos tipos de comillas y además escribir varias líneas dentro del mismo string.
+
+¿Cuándo conviene usar comillas triples?
+
+Las comillas triples son la única forma válida de escribir un string multilínea en Python. Si intentas saltar de línea con comillas simples o dobles, el editor lo marcará en rojo y obtendrás un error.
+
+Con triples comillas, los saltos de línea se respetan tal cual al imprimir. Es ideal para textos largos, mensajes formateados o documentación interna [02:10].
+
+¿Cómo saber cuántos caracteres tiene un string?
+
+El método len() devuelve la cantidad total de caracteres de una cadena, incluyendo letras, espacios y signos.
+
+Por ejemplo, len("murciélago") devuelve 10. Es una de las funciones más usadas para validar entradas, medir longitudes mínimas en formularios o recorrer cadenas [03:20].
+
+python palabra = "murciélago" print(len(palabra)) # 10
+
+¿Cómo verificar si una palabra está dentro de un texto?
+
+Python ofrece los operadores in y not in para comprobar si un substring aparece dentro de otro string. El resultado siempre es un booleano: True o False.
+
+"Python" in texto devuelve True si la palabra existe tal cual.
+"python" in texto devuelve False porque Python es case sensitive.
+"JavaScript" not in texto devuelve True cuando la palabra realmente no está.
+Esa sensibilidad a mayúsculas y minúsculas es clave: Python y python no son lo mismo para el intérprete [04:30].
+
+¿Qué significa case sensitive en Python? Que el lenguaje distingue entre mayúsculas y minúsculas. Hola y hola son tratadas como cadenas distintas en cualquier comparación.
+
+¿Cómo convertir un texto a mayúsculas o minúsculas?
+
+Para transformar el formato de un string existen dos métodos directos:
+
+.upper() convierte todo el texto a mayúsculas.
+.lower() convierte todo el texto a minúsculas.
+Ambos devuelven una nueva cadena, no modifican la original. Por eso debes asignar el resultado a una variable distinta si quieres conservarlo.
+
+python texto = "Este curso es de fundamentos de Python" mayuscula = texto.upper() minuscula = texto.lower()
+
+Un detalle importante: si reutilizas la misma variable para guardar el resultado de upper y luego de lower, prevalece la última asignación. Python ejecuta línea por línea y el valor anterior se pierde [06:40].
+
+¿Cómo eliminar espacios al inicio y al final de un string?
+
+El método .strip() limpia los espacios sobrantes al comienzo y al final de un texto, sin tocar los espacios internos entre palabras.
+
+Es especialmente útil al validar contraseñas, correos o nombres de usuario, donde un espacio invisible puede causar errores de autenticación que parecen mágicos. Una llamada a strip() resuelve ese problema en una línea [08:15].
+
+python espacios = " este es el texto " sin_espacios = espacios.strip() print(sin_espacios) # "este es el texto"
+
+Habilidades y conceptos clave de esta lección
+
+Comillas simples, dobles y triples: alternarlas evita errores de sintaxis y permite strings multilínea [01:00].
+Función len(): cuenta caracteres de cualquier cadena [03:20].
+Operadores in y not in: verifican pertenencia de substrings y devuelven booleanos [04:30].
+Case sensitivity: Python distingue entre mayúsculas y minúsculas en toda comparación de texto [05:00].
+Métodos .upper() y .lower(): transforman el formato sin alterar la cadena original [06:00].
+Método .strip(): elimina espacios al inicio y al final, ideal para sanitizar inputs [08:15].
+Dominar estos métodos te prepara para el siguiente paso: limpieza y normalización de texto, donde combinarás varias de estas funciones para procesar datos reales. ¿Cuál de estos métodos crees que vas a usar primero en tus proyectos? Cuéntalo en los comentarios.
+
+
+links:
+
+https://github.com/platzi/python-fundamentos/commit/ba8b8e4ea1b49ec50029263ac595a04c2ab2cbd2
+
+https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/texto.py
+
 
 
 
