@@ -991,6 +991,210 @@ https://github.com/platzi/python-fundamentos/commit/ba8b8e4ea1b49ec50029263ac595
 https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/texto.py
 
 
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+
+# 12 Slicing, replace y split para manipular strings en Python
+
+Aprende a dominar textos en Python con técnicas prácticas: índices base cero, slicing con fin no incluido, búsquedas seguras con normalización, y métodos esenciales como replace y split. Con estas habilidades trabajarás textos largos con precisión, evitando errores típicos al cortar, reemplazar y comparar cadenas.
+
+¿Cómo funcionan los índices en strings de Python?
+
+Comprender el índice es clave: en Python las posiciones comienzan en 0 y los espacios cuentan como caracteres. Acceder a un carácter se hace con corchetes.
+
+El primer carácter tiene índice 0.
+Los espacios y signos también ocupan posición.
+Usar print con acceso por índice muestra el carácter correspondiente.
+¿Qué es indexación base cero y por qué los espacios cuentan?
+
+Base cero: el primer carácter es 0, no 1.
+Ejemplo práctico: la E de "Este" está en 0; el espacio tras "Este" ocupa una posición.
+texto = "Este es un texto" print(texto[0])   # E print(texto[4])   # espacio
+
+¿Cómo acceder a un carácter por índice?
+
+Sintaxis: cadena[indice].
+Si el índice apunta a un espacio, se imprime un espacio.
+print(texto[0])  # E print(texto[4])  # ' '
+
+¿Cómo hacer slicing para extraer partes del texto?
+
+El slicing usa rangos [inicio:fin] donde fin no está incluido. Puedes omitir inicio o fin para tomar desde el principio o hasta el final. También puedes contar desde atrás con índices negativos.
+
+Fin no incluido: cuenta "uno de más" para abarcar el último carácter deseado.
+Inicio omitido: toma desde el principio.
+Fin omitido: llega hasta el final.
+Negativos: -1 es el último carácter.
+¿Cómo usar rangos [inicio:fin] con fin no incluido?
+
+Extraer "Este": de 0 a 4 excluido.
+Si cuentas hasta el último índice visible y lo colocas en fin, ese carácter no se incluye.
+print(texto[0:4])   # Este # Hasta el final contando manualmente: cuidado con la última letra print(texto[0:15])  # falta la 'o' final si 15 apunta a esa posición
+
+¿Cómo omitir inicio o fin y usar índices negativos?
+
+Desde el principio hasta una posición.
+Desde una posición hasta el final.
+Usar negativos para cortar desde atrás y recordar que fin excluye.
+print(texto[:7])   # "Este es" print(texto[5:])   # desde la "e" de "es" hasta el final # De la "e" de "es" hasta incluir la "x": fin como -2 para abarcar la X print(texto[5:-2])
+
+¿Cómo reemplazar, dividir y normalizar texto en Python?
+
+Para actualizar contenidos, separar palabras y comparar sin errores por mayúsculas/minúsculas, usa replace, split y lower. Python es case sensitive, por eso la normalización evita falsos negativos en búsquedas.
+
+¿Cómo reemplazar con replace y cuántas veces ocurre?
+
+replace cambia todas las apariciones del texto objetivo.
+Útil para corregir etiquetas o tecnologías mencionadas.
+curso = "Este curso es de JavaScript" print(curso.replace("JavaScript", "Python")) # "Este curso es de Python"  # Si hubiera múltiples "JavaScript", las reemplaza todas
+
+¿Cómo dividir con split para obtener una lista de palabras?
+
+split convierte un string en lista usando un separador.
+El espacio es un separador común, colócalo entre comillas.
+texto_dividido = texto.split(" ") print(texto_dividido)  # ['Este', 'es', 'un', 'texto']
+
+¿Cómo comparar sin errores por mayúsculas y minúsculas?
+
+Python es case sensitive: distingue mayúsculas y minúsculas.
+Normaliza con lower (a lowercase) tanto el texto como lo buscado.
+Usa el operador in para verificar inclusión fiable.
+texto2 = "Este Texto tiene MAYÚSCULAS y minúsculas" buscado = "mayúsculas" print(buscado in texto2)  # False print(buscado.lower() in texto2.lower())  # True
+
+¿Te gustaría practicar más? Comparte en comentarios tus propios ejemplos de slicing, replace, split y comparaciones con lower para que podamos revisarlos juntos.
+
+
+links :  
+
+https://github.com/platzi/python-fundamentos/commit/18376f14bd3f9ac6b988919c0804949bdb5894b4
+
+https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/texto2.py
+
+
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+# 13 Booleanos en Python: True, False y casting
+
+
+Los booleanos en Python son el tipo de dato que solo acepta dos valores, True o False, y se convierten en la base para tomar decisiones dentro del flujo de un programa. Si estás aprendiendo Python y quieres entender cómo controlar condiciones, comparaciones y validaciones, dominar este tipo de dato es el primer paso.
+
+Lo interesante es que no solo escribes True o False manualmente: también obtienes booleanos al comparar valores, al hacer casting de otros tipos de datos y al verificar instancias. Vamos por partes.
+
+¿Qué es un booleano en Python y cómo se declara?
+
+Un booleano es un tipo de dato que solo puede tomar dos valores: True (verdadero) o False (falso). En Python se escriben siempre con la primera letra en mayúscula, de lo contrario el intérprete lanzará un error.
+
+python b = True f = False print(b) # True print(f) # False
+
+Si quieres confirmar que una variable es de tipo booleano, usas la función type() y obtendrás <class 'bool'> como respuesta [01:25].
+
+¿Qué es un booleano en programación? Es un tipo de dato que solo admite dos valores posibles, verdadero o falso, y sirve para representar condiciones lógicas en el código.
+
+¿Cómo generar booleanos con comparaciones?
+
+Cuando comparas dos valores, Python devuelve automáticamente un booleano. Es la forma más común de generarlos en la práctica.
+
+5 > 3 devuelve True porque la afirmación es verdadera.
+3 > 5 devuelve False porque la afirmación es falsa.
+Esta lógica es la que después usarás dentro de estructuras como if, while y otros flujos de control para decidir qué camino sigue tu programa [00:55].
+
+¿Cómo funciona el casting a booleano en Python?
+
+Además de declararlos o generarlos por comparación, puedes convertir otros tipos de datos a booleano usando la función bool(). Aquí es donde aparece una regla clave: Python interpreta el contenido para decidir si algo es verdadero o falso.
+
+Si haces bool("Hola, mundo"), obtienes True porque el string tiene contenido. Si haces bool(""), obtienes False porque está vacío [02:15].
+
+¿Qué valores devuelven True al castear?
+
+Los valores con contenido se evalúan como verdaderos. Estos son los casos más comunes:
+
+Un string con texto, por ejemplo "Hola, mundo".
+Un número distinto de cero, como 123.
+Una lista con elementos, por ejemplo ["manzana", "pera"].
+En los tres casos, bool() devuelve True porque hay información dentro de la estructura.
+
+¿Qué valores devuelven False al castear?
+
+Los valores vacíos o nulos se evalúan como falsos. Memoriza esta lista porque te va a ahorrar muchos bugs:
+
+Un string vacío "".
+El número 0.
+Una lista vacía [].
+El valor None, que es un tipo de dato específico que representa la ausencia de valor.
+¿Qué pasa si hago bool(0) en Python? Devuelve False. El cero, junto con los strings vacíos, listas vacías y None, son los principales valores que Python interpreta como falsos al hacer casting.
+
+¿Cómo verificar el tipo de dato con isinstance?
+
+Más allá de los booleanos directos, Python te ofrece isinstance() para confirmar si una variable pertenece a un tipo específico. La función devuelve un booleano: True si coincide y False si no.
+
+python numero = 5 print(isinstance(numero, int)) # True
+
+numero = 5.5 print(isinstance(numero, int)) # False, porque es float
+
+Este método es especialmente útil cuando recibes datos de un usuario o de una API y necesitas validar el tipo antes de operar con ellos [04:20].
+
+¿Por qué los booleanos son clave para el flujo en Python?
+
+La razón por la que dedicas tiempo a entender True y False es simple: toda decisión en un programa se reduce a una evaluación booleana. Cuando escribes un if, lo que Python hace por debajo es preguntarse si la condición es verdadera o falsa.
+
+Saber que un string vacío equivale a False o que una lista con elementos equivale a True te permite escribir condiciones más limpias, sin tener que comparar manualmente longitudes o valores nulos.
+
+Y si combinas esto con isinstance(), tienes una caja de herramientas sólida para validar entradas, controlar errores y construir flujos robustos.
+
+¿Ya intentaste usar bool() con tus propias variables? Cuéntame en los comentarios qué resultado obtuviste y qué dudas te surgieron al castear distintos tipos de datos.
+
+links:
+
+https://github.com/platzi/python-fundamentos/commit/6283248d570f8f09488c412b85099c5113ea7108
+
+https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/booleans.py
+
+
+-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+# 14 None en Python no es cero ni vacío
+
+En Python existe un tipo de dato que confunde a quienes empiezan a programar: None representa la ausencia de valor, no un string vacío, no un cero, no un false. Entender qué es None y cómo se diferencia de otros valores vacíos te prepara para trabajar con funciones, retornos y validaciones más adelante.
+
+Qué significa None en Python y por qué importa
+
+Cuando declaras una variable y le asignas None, le estás diciendo a Python que esa variable no tiene ningún valor dentro. Si imprimes esa variable, verás literalmente la palabra None en consola, y si revisas su tipo con type(), Python te responderá que pertenece a la clase NoneType.
+
+python x = None print(x) # None print(type(x)) # <class 'NoneType'>
+
+Y aquí viene lo interesante: None no es sinónimo de vacío. Es un tipo de dato propio, con su propia clase, pensado para representar la nada de forma explícita.
+
+¿Qué es None en Python? Es un valor especial que representa la ausencia total de valor. Tiene su propia clase llamada NoneType y se usa cuando una variable o función no contiene ni devuelve nada.
+
+En qué se diferencia None de un string vacío, un cero o una lista vacía
+
+Es fácil pensar que un "", un 0, un False o un [] son lo mismo que None porque parecen vacíos. No lo son. Cada uno conserva su propio tipo de dato aunque no contenga información útil.
+
+Un string vacío "" sigue siendo de clase str.
+Un cero 0 sigue siendo de clase int, dentro de los tipos numéricos.
+Un booleano False sigue siendo de clase bool.
+Una lista vacía [] sigue siendo de clase list.
+Estar vacío no es lo mismo que no existir. Una caja vacía sigue siendo una caja; None sería no tener caja en absoluto. Esa distinción es la que Python hace con NoneType.
+
+¿None es igual a False o a 0? No. Aunque en algunos contextos se evalúan como falsos, None pertenece a NoneType, mientras que False es bool y 0 es int. Son tipos de dato distintos.
+
+Por qué necesitas entender None antes de ver funciones
+
+Las funciones en Python devuelven valores cuando terminan de ejecutarse. Pero existe un caso muy común: una función puede no devolver nada explícitamente, y en ese momento Python te entrega None de forma automática.
+
+Si no tienes claro qué es None, te vas a confundir cuando una función parezca no responder o cuando intentes operar con su resultado. Saber que None significa ausencia de valor te permite validar retornos, evitar errores y escribir código más limpio.
+
+¿Qué devuelve una función que no retorna nada? Devuelve None de manera implícita. Por eso reconocer este tipo de dato es clave antes de profundizar en funciones.
+
+Cómo identificar None en tu código
+
+Una forma rápida de comprobarlo es usando type() sobre la variable. Si Python te responde <class 'NoneType'>, estás frente a una ausencia de valor real, no frente a un dato vacío de otro tipo.
+
+También puedes comparar directamente con la palabra reservada None para validar si una variable está sin asignar de forma intencional. Esta práctica es común cuando trabajas con valores que pueden o no existir, como respuestas de funciones, datos opcionales o estados iniciales.
+
+Ten presente esta diferencia desde ahora: vacío y ausente no son lo mismo. Cuéntame en los comentarios, ¿en qué situación crees que usarías None en tu próximo programa?
+
+
 
 
 
