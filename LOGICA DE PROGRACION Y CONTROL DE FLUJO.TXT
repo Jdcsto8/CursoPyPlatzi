@@ -1,0 +1,391 @@
+# 15 Operadores aritméticos en Python explicados
+
+
+Si estás aprendiendo Python, los operadores aritméticos son la base para manipular variables y valores numéricos. Te muestro cómo funcionan la suma, resta, multiplicación, división, módulo, potencia y división entera, además del orden en que Python los ejecuta.
+
+¿Qué son los operadores aritméticos en Python?
+
+Los operadores aritméticos te permiten realizar cálculos matemáticos sobre variables y valores. Para entenderlos, definamos dos variables base: x = 5 y y = 10. Con ellas vamos a recorrer cada operador.
+
+¿Cómo funcionan la suma y la resta?
+
+La suma usa el símbolo + y la resta usa el símbolo -. Son los operadores más intuitivos porque coinciden con los signos matemáticos clásicos.
+
+python print("suma", x + y) # 15 print("resta", x - y) # -5
+
+Nota cómo x - y da un número negativo. Python respeta el orden y el signo tal como lo harías a mano.
+
+¿Cómo se multiplican y dividen números en Python?
+
+La multiplicación se escribe con asterisco *, no con la x que aprendiste en primaria. La división usa la barra /.
+
+python print("multiplicación", x * y) # 50 print("división", y / x) # 2.0
+
+Y aquí viene un detalle importante: aunque 10 / 5 da un resultado entero, la división con / siempre devuelve un flotante. Por eso ves 2.0 y no 2.
+
+¿Cómo usar el módulo y la potencia?
+
+El módulo y la potencia son dos operadores que aparecen menos en clase de matemáticas pero que vas a usar muchísimo programando.
+
+¿Qué es el módulo en Python?
+
+¿Qué es el operador módulo? Es el residuo de una división. Se escribe con % y devuelve lo que sobra después de dividir. Por ejemplo, 12 % 5 es 2 porque 5 cabe dos veces en 12 y sobran 2.
+
+Si la división es exacta, como 10 % 5, el módulo da 0. Un uso clásico del módulo es saber si un número es par: si numero % 2 == 0, el número es par; si da 1, es impar.
+
+python par = 8 print(par % 2 == 0) # True
+
+¿Cómo se calcula la potencia y la división entera?
+
+La potencia usa doble asterisco **, y la división entera usa doble barra //.
+
+y ** x calcula 10 elevado a la 5, lo que da 100000.
+y // x divide y descarta los decimales, devolviendo solo la parte entera.
+python print(y ** x) # 100000 print(12 // 5) # 2
+
+¿Cuál es la diferencia entre / y //? La barra simple devuelve un flotante con decimales, mientras que la doble barra devuelve solo la parte entera del resultado. 12 / 5 da 2.4, pero 12 // 5 da 2.
+
+La división entera es útil cuando solo te interesa el cociente, y combinada con el módulo puedes reconstruir la división completa: 12 // 5 te da el cociente 2, y 12 % 5 te da el residuo 2.
+
+¿Cuál es el orden de precedencia de operadores en Python?
+
+Python sigue una jerarquía muy parecida a la de las matemáticas. Conocerla te evita errores de cálculo silenciosos.
+
+
+
+Este es el orden en que Python resuelve las operaciones:
+
+Paréntesis ().
+Exponentes **.
+Multiplicación, división, división entera y módulo * / // %.
+Suma y resta + -.
+Comparaciones de identidad y pertenencia.
+Operadores lógicos.
+Si quieres forzar un orden distinto, usa paréntesis: todo lo que esté entre paréntesis se ejecuta primero, sin importar qué operadores haya alrededor.
+
+Conceptos clave que aparecen en la clase
+
+Para que te lleves los términos bien anclados, aquí están los conceptos centrales con su momento en la clase:
+
+Operadores aritméticos: símbolos que ejecutan cálculos matemáticos sobre variables [0:15].
+Suma y resta: operaciones básicas con + y - [0:35].
+Multiplicación con asterisco: en Python se usa *, no la x tradicional [1:15].
+División y flotantes: el operador / siempre devuelve un número decimal [1:35].
+Módulo o resto: residuo de una división, representado por % [2:05].
+Potencia con doble asterisco: ** eleva la base al exponente indicado [2:55].
+División entera: // devuelve solo la parte entera del cociente [3:25].
+Detección de números pares: usar numero % 2 == 0 para validar paridad [4:05].
+Precedencia de operadores: orden jerárquico que Python sigue al evaluar expresiones [5:00].
+¿Qué operador te parece más útil para los programas que quieres construir? Cuéntame en los comentarios cómo lo estás aplicando.
+
+
+# NO CREO ARCHIVO DE EJEMPLO YA ME SE ESTA PARTE 
+
+LINKS 
+
+https://github.com/platzi/python-fundamentos/commit/bffffa1a21b94f8205ccbcbacad355c86587f54e
+
+https://github.com/platzi/python-fundamentos/blob/master/operadores/operadores-aritmeticos.py
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+# 16  Operadores de asignación y walrus en Python
+
+
+Aprende a escribir código más claro y corto en Python dominando operadores de asignación como +=, -=, =, /=, %=, //=, = y el operador walrus* (:=). Con ejemplos simples verás cómo actualizar variables sin repetirlas y cómo estos operadores afectan los tipos numéricos.
+
+¿Qué son los operadores de asignación en Python?
+
+Los operadores de asignación permiten actualizar el valor de una variable tomando su valor previo y aplicando una operación en el mismo paso. En lugar de escribir expresiones largas, puedes ahorrar código y mantener la intención más visible.
+
+# Asignación básica y = 5  # y ahora vale 5  # Sumar y reasignar (forma larga vs. corta) x = 5 x = x + 3   # x ahora vale 8 x = 5       # reiniciamos x += 3      # mismo resultado: 8  # Restar y reasignar x -= 3      # vuelve a 5
+
+= asigna un valor inicial a la variable.
++=, -= actualizan el valor existente con suma o resta.
+Menos repetición, más legibilidad.
+¿Cómo se aplican las operaciones básicas y sus efectos en el tipo?
+
+Además de suma y resta, puedes usar multiplicación, división, módulo, división entera y exponente con sus versiones de asignación. Importante: con la división estándar, el resultado pasa a flotante.
+
+x = 5 x *= 3      # 15 x /= 3      # 5.0  ← al dividir, el resultado es flotante (tipo *float*).
+
+¿Qué pasa con el módulo y los tipos?
+
+El módulo (%=) devuelve el resto de la división y, si la variable es flotante, el resto también será flotante.
+
+x = 5.0     # x quedó flotante tras la división x %= 2      # 1.0  ← el resto también es flotante.
+
+%= calcula el resto y reasigna.
+Si la variable es flotante, el resultado del módulo es flotante.
+¿Cómo funciona la división entera y el exponente?
+
+La división entera (//=) ignora la parte decimal. El exponente (**=) repite multiplicaciones.
+
+y = 20 y //= 2     # 10  # Si y fuera 21: y //= 2 → 10 (ignora la parte decimal).  # Exponente (elevar al cubo) y = 10 y **= 3     # 1000 (10 * 10 * 10)
+
+//= hace división entera y descarta decimales.
+**= eleva a potencias repetidas y reasigna.
+¿Qué hace el operador walrus en Python 3.8?
+
+El operador walrus (:=) permite asignar mientras usas el valor, incluso dentro de un print. Es muy práctico para evitar líneas extra al preparar valores.
+
+# Asignar dentro del print print(z := 3)  # imprime 3 y, además, z queda asignada con 3 print(z)       # 3 (ya estaba guardado)
+
+:= asigna y devuelve el valor en la misma expresión.
+Funciona dentro de llamadas como print y evita código repetido.
+Disponible desde Python 3.8.
+¿Te gustaría ver más ejemplos con casos reales y combinar estos operadores en expresiones más complejas? Deja tus dudas o comparte tu caso en los comentarios.
+
+LINKS: 
+
+https://github.com/platzi/python-fundamentos/commit/405aa57f76137a4bbb74b1bd536bc440dc223d7a
+
+https://github.com/platzi/python-fundamentos/blob/master/operadores/operadores-asignacion.py
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 17 Operadores lógicos y de comparación en Python
+
+
+Los operadores de comparación y los operadores lógicos en Python te permiten evaluar condiciones y controlar el flujo de tus programas con precisión. Si ya entendiste qué son los booleanos, este es el siguiente paso lógico para empezar a tomar decisiones dentro del código.
+
+¿Qué hacen los operadores de comparación en Python?
+
+Los operadores de comparación sirven para comparar dos valores y devolver siempre un booleano: True o False. Son la base para que tu programa pueda decidir qué camino tomar.
+
+Imagina que tenés dos variables: x = 5 e y = 3. A partir de ahí podés preguntarle a Python distintas cosas sobre la relación entre esos valores.
+
+¿Cómo verifico igualdad y desigualdad?
+
+Para saber si dos valores son iguales se usan dos signos igual seguidos (==). Es un detalle clave: un solo = asigna, mientras que == compara.
+
+x == y devuelve False porque 5 no es igual a 3.
+x != y devuelve True porque sí son distintos.
+El símbolo != puede resultar contraintuitivo al principio, pero se lee como "distinto de". Cuando la condición de desigualdad se cumple, el resultado es verdadero.
+
+¿Cuál es la diferencia entre = y == en Python? El signo = asigna un valor a una variable. El doble == compara dos valores y devuelve True o False. Confundirlos es uno de los errores más comunes al empezar.
+
+¿Cómo comparo si un valor es mayor o menor que otro?
+
+Python usa los símbolos clásicos de matemática para comparar magnitudes. Con x = 5 e y = 3:
+
+x > y devuelve True, porque 5 es mayor que 3.
+x < y devuelve False, porque 5 no es menor que 3.
+Ahora, si querés incluir el caso de igualdad, agregás un signo igual al operador. Si sumamos una tercera variable z = 5:
+
+x >= y devuelve True porque 5 es mayor que 3.
+x >= z devuelve True porque 5 es igual a 5, y el operador acepta esa igualdad.
+x <= z también devuelve True por la misma razón.
+x <= y devuelve False porque 5 no es menor ni igual a 3.
+La diferencia entre > y >= parece chica, pero cambia por completo el resultado cuando los valores son iguales. Lo mismo pasa con < y <=.
+
+¿Para qué sirven los operadores lógicos and, or y not?
+
+Los operadores lógicos te permiten combinar varias condiciones en una sola expresión. Acá es donde realmente empezás a manipular el flujo de Python con autoridad.
+
+¿Cómo funciona el operador and?
+
+El operador and exige que ambas condiciones sean verdaderas para devolver True. Si alguna falla, el resultado es False.
+
+Con x = 5, y = 3, z = 5, evaluemos x > y and y > z:
+
+x > y es True porque 5 es mayor que 3.
+y > z es False porque 3 no es mayor que 5.
+El resultado final es False porque and necesita que las dos se cumplan.
+¿Cuándo conviene usar or en lugar de and?
+
+El operador or es más flexible: con que una sola condición sea verdadera, ya devuelve True. Solo da False si las dos fallan.
+
+Evaluando x > y or y > z:
+
+La primera parte es True.
+La segunda es False.
+El resultado es True porque al menos una se cumplió.
+¿Cuál es la diferencia entre and y or en Python? Con and, las dos condiciones deben ser verdaderas. Con or, basta con que una lo sea. Si las dos son falsas, ambos operadores devuelven False.
+
+¿Cómo se usa el operador not para negar valores?
+
+El operador not invierte un booleano. Si tenés un valor True y le aplicás not, pasa a ser False. Y viceversa:
+
+not True devuelve False.
+not False devuelve True.
+Esto es muy útil cuando necesitás que tu programa actúe justo cuando una condición no se cumple. En muchos flujos de aplicaciones vas a querer negar una condición para que el código avance solo en el escenario opuesto al que estás evaluando.
+
+¿Por qué importan los booleanos en la toma de decisiones?
+
+Cada comparación y cada combinación lógica devuelve un booleano, y esos booleanos son los que le dicen a Python qué bloque de código ejecutar. Sin ellos, no hay condicionales ni bifurcaciones reales.
+
+Dominar los operadores ==, !=, >, <, >=, <=, junto con and, or y not, te da el control total sobre cómo se comporta tu programa frente a distintos datos de entrada. Son la base de todo lo que viene después: estructuras condicionales, bucles y validaciones.
+
+¿Qué condición lógica te resulta más difícil de aplicar en tu código? Contame en los comentarios cómo la estás resolviendo.
+
+# NO GENERE ARCHIVO DE EJEMPLO YA ME ESE ESE TEMA 
+
+LINKS 
+
+https://github.com/platzi/python-fundamentos/commit/cdd780695e03a782e3d557f86fb44b21897d8481
+https://github.com/platzi/python-fundamentos/blob/master/operadores/operadores-logicos.py
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 18 Condicionales en Python: if, else, and, or y pass
+
+
+Domina los condicionales en Python con ejemplos claros y prácticos: cuándo usar la sentencia if, cómo decidir con else, combinar condiciones con and y or, comparar números y strings, anidar if y aprovechar el statement pass. Controla el flujo del programa con seguridad y evita errores de sintaxis gracias a la indentación correcta.
+
+¿Cómo funcionan los condicionales en Python con if y else?
+
+Los condicionales dirigen el flujo según una condición que evalúa a true o false. Con if, el bloque interno se ejecuta solo si la condición es verdadera. Si no se cumple, no ocurre nada a menos que agregues un else.
+
+Control de flujo: decide qué bloque se ejecuta según una condición booleana.
+Bloque de código: solo corre si la condición es verdadera.
+Valores booleanos: verdadero o falso.
+¿Qué pasa cuando la condición es verdadera o falsa?
+
+# verdadero: imprime if 5 > 3:     print("5 es mayor a 3")  # falso: no imprime if 2 > 3:     print("2 es mayor a 3")
+
+¿Cómo usar variables y múltiples if al mismo nivel?
+
+x = 5 y = 3  if x > y:     print("x es mayor a y")  # se ejecuta  if x < y:     print("x es menor a y")  # no se ejecuta
+
+Dos if al mismo nivel se evalúan de forma independiente.
+Si la condición es falsa, su bloque no corre.
+¿Cuándo aplicar else para la alternativa?
+
+Si ninguna condición previa se cumple, else define el camino alternativo. Puedes encadenar decisiones con if anidados sin introducir nuevas sentencias.
+
+x = 5 y = 5  if x > y:     print("x es mayor a y") else:     if x == y:         print("x es igual a y")     else:         print("ninguna de las condiciones anteriores se cumplió")
+
+Indentación: define qué else corresponde a qué if.
+¿Cómo combinar condiciones con and y or?
+
+Cuando necesitas evaluar más de una condición, utiliza los operadores lógicos and y or para controlar el flujo con precisión.
+
+¿Cuándo entra con and?
+
+Con and, deben cumplirse ambas condiciones para ejecutar el bloque.
+
+x = 5 y = 3 z = 1  if x > y and x > z:     print("x es mayor a y y x es mayor a z")  # ambas verdaderas else:     print("ninguna de las condiciones anteriores se cumplió")
+
+Útil cuando necesitas validar dos reglas simultáneas.
+Si una falla, no entra al bloque.
+¿Cuándo entra con or?
+
+Con or, basta con que una condición sea verdadera.
+
+x = 5 y = 3 z = 10  if x > y or x > z:     print("x es mayor a y y x es menor a z")  # al menos una verdadera
+
+Práctico para alternativas flexibles.
+Recuerda ajustar el mensaje para que refleje la lógica real.
+¿Cómo comparar strings, anidar if y respetar la indentación?
+
+También puedes comparar strings con igualdad o diferencia, y combinar decisiones dentro de otras decisiones con if anidados. La indentación es clave para evitar errores y mantener legible la estructura.
+
+¿Cómo comparar texto y usar if anidado?
+
+a = "Python" b = "JavaScript" c = "Python"  # igualdad y diferencia if a == b:     print("a es igual a b") else:     print("a no es igual a b")  # comparación con anidación if a == c:     if a != b:         print("a es igual a c, pero es distinto a b")     else:         print("estoy saliendo por el else del if interno")
+
+Comparación de strings: usa == y !=.
+If anidado: permite decisiones más específicas.
+Indentación: define bloques internos y externos de forma inequívoca.
+¿Para qué sirve el statement pass en un if vacío?
+
+Cuando aún no sabes qué acción ejecutar, no dejes el bloque vacío: usa pass para evitar errores de indentación y posponer la lógica.
+
+e = 10 f = 10  if e == f:     pass  # placeholder temporal sin romper la ejecución
+
+Evita errores por bloques vacíos.
+Permite ignorar la estructura hasta definir el comportamiento esperado.
+¿Con qué ejemplo práctico reforzarías estos condicionales en tu código? comparte tu idea en los comentarios y ayuda a tus compañeros a seguir aprendiendo.
+
+# NO SE CREA EJEMPLO 
+links 
+
+https://github.com/platzi/python-fundamentos/commit/cc5f9350a473afab6d6ad14972dba95fea58da83
+
+https://github.com/platzi/python-fundamentos/blob/master/condicionales/if-elif-else.py
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+# Sentencia match en Python 3.10 para control de flujo
+
+La sentencia match de Python 3.10 simplifica el control de flujo con una sintaxis clara y legible. Si vienes de otros lenguajes, se siente similar a un switch, pero con el estilo Python. Aquí verás cómo sustituir cadenas de if, elif, else por casos bien definidos con case y cómo usar el comodín _ para capturar lo no contemplado.
+
+¿Qué es la sentencia match en Python 3.10?
+
+La idea central: evaluar una expresión y comparar su valor contra varios casos. Si hay coincidencia, se ejecuta el bloque asociado. Es ideal para reemplazar secuencias repetitivas de if/elif.
+
+Introducida en Python 3.10: sintaxis moderna y clara.
+Inspiración de switch: enfoque por coincidencia de valor.
+Estructura básica: una expresión, varios case, y un caso comodín con _.
+Control de flujo más limpio: reemplaza if, elif, elif, else.
+¿Por qué reemplaza if/elif/else?
+
+Menos repetición: un único punto de comparación.
+Legibilidad: cada case expresa la intención del caso.
+Mantenimiento: agregar o cambiar un caso es directo.
+¿Cómo funciona el comodín _?
+
+_ captura cualquier valor que no coincida con los casos previos.
+Útil para mostrar un mensaje por defecto.
+¿Cómo usar match con el día de la semana?
+
+El ejemplo define una variable dia y usa match para imprimir el nombre del día según un número. Si el valor no coincide con los casos definidos, se muestra un mensaje por defecto con _.
+
+# Python 3.10+ dia = 1  match dia:     case 1:         print("hoy es lunes")     case 2:         print("hoy es martes")     case 3:         print("hoy es miércoles")     case _:         print("No coincide con ninguna de las anteriores opciones")
+
+Si dia = 1: imprime "hoy es lunes".
+Si dia = 2: imprime "hoy es martes".
+Si dia = 3: imprime "hoy es miércoles".
+Si dia no es 1, 2 o 3: entra en case _ y muestra el mensaje por defecto.
+¿Cómo cambiar el valor y ver el resultado?
+
+Modifica dia a 2 para ver "hoy es martes".
+Modifica dia a 3 para ver "hoy es miércoles".
+Usa un valor no declarado (por ejemplo 9) para activar case _.
+¿Qué habilidades y conceptos pones en práctica?
+
+Control de flujo con match y case.
+Mapeo de valores numéricos a mensajes.
+Uso del comodín _ para casos no contemplados.
+Pruebas cambiando entradas para verificar salidas.
+¿Qué ejercicio practicar con strings y case?
+
+Se propone cambiar la comparación de números por texto. En vez de 1, 2, 3, usa un string y compara de la misma forma. Así ejercitas la coincidencia por valor y el manejo del caso por defecto.
+
+# Ejercicio sugerido # Cambia dia_num por un string, por ejemplo: "lunes", "martes", "miércoles" dia_txt = "lunes"  match dia_txt:     case "lunes":         print("hoy es lunes")     case "martes":         print("hoy es martes")     case "miércoles":         print("hoy es miércoles")     case _:         print("No coincide con ninguna de las anteriores opciones")
+
+¿Cómo compartir tu solución y aprender más?
+
+Crea tu versión más creativa con strings.
+Prueba varios valores y el caso _.
+Comenta tu solución y resultados para que todos aprendamos juntos.
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/c2e170162905e3ce74fe434bb2532cca20494985
+
+https://github.com/platzi/python-fundamentos/blob/master/condicionales/match.py
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
