@@ -318,7 +318,7 @@ https://github.com/platzi/python-fundamentos/blob/master/condicionales/if-elif-e
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------
-# Sentencia match en Python 3.10 para control de flujo
+# 19 Sentencia match en Python 3.10 para control de flujo
 
 La sentencia match de Python 3.10 simplifica el control de flujo con una sintaxis clara y legible. Si vienes de otros lenguajes, se siente similar a un switch, pero con el estilo Python. Aquí verás cómo sustituir cadenas de if, elif, else por casos bien definidos con case y cómo usar el comodín _ para capturar lo no contemplado.
 
@@ -382,6 +382,225 @@ https://github.com/platzi/python-fundamentos/blob/master/condicionales/match.py
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------
+
+#20 bucles while en Python: condiciones, break y continue
+
+
+Aprende a dominar el bucle while en Python con ejemplos claros y prácticos. Verás cómo controlar la condición, cortar la ejecución con break, saltar iteraciones con continue y aprovechar el else del while. Todo con código mínimo y explicaciones directas para evitar errores comunes como el bucle infinito.
+
+¿Qué es el bucle while en Python y cómo funciona?
+
+El bucle while repite instrucciones mientras una condición sea verdadera. La idea básica: iniciar una variable de control, evaluar la condición y actualizar el estado en cada vuelta para no quedar atrapados.
+
+Repite mientras la condición sea verdadera.
+Usa un contador o estado, por ejemplo i.
+Actualiza el valor dentro del bucle con i += 1.
+Evita el bucle infinito controlando la condición y el incremento.
+¿Cómo contar del 1 al 9 y del 1 al 10?
+
+# 1 a 9 i = 1 while i < 10:     print(i)     i += 1
+
+Cambia la condición para incluir el 10:
+
+# 1 a 10 i = 1 while i <= 10:     print(i)     i += 1
+
+¿Cómo afecta el orden de print e incremento?
+
+Mover el incremento antes del print cambia los resultados:
+
+# Imprime de 2 a 11 por el orden de las instrucciones i = 1 while i <= 10:     i += 1     print(i)
+
+Ajusta la condición para contar correctamente del 1 al 10 con incremento antes del print:
+
+# 1 a 10 con incremento antes del print i = 0 while i < 10:     i += 1     print(i)
+
+¿Cómo controlar el flujo con break y continue?
+
+Controlar el flujo evita ejecuciones innecesarias y casos límite. Con break sales del bucle; con continue saltas a la siguiente iteración sin ejecutar lo que sigue.
+
+Operador relacional == para comparar valores.
+Sentencia break: detiene la repetición.
+Sentencia continue: salta la iteración actual.
+Cuidado con el orden para evitar bucles infinitos.
+¿Cómo salir del bucle con break?
+
+# Imprime 1 a 5 y se detiene i = 1 while i <= 10:     print(i)     if i == 5:         break     i += 1
+
+Si evalúas la condición antes del print, el 5 no se imprime porque el break ocurre antes del print:
+
+# Imprime 1 a 4, no imprime 5 i = 1 while i <= 10:     if i == 5:         break     print(i)     i += 1
+
+¿Cómo saltar un valor con continue sin romper el bucle?
+
+Caso correcto: incrementa antes de verificar y saltar el 5.
+
+# Imprime 1, 2, 3, 4, 6, 7, 8, 9, 10 (saltea el 5) i = 0 while i < 10:     i += 1     if i == 5:         continue     print(i)
+
+Caso problemático: usar continue antes de incrementar produce bucle infinito cuando i == 5, porque i nunca cambia.
+
+# Ejemplo a evitar: bucle infinito si i == 5 i = 1 while i <= 10:     if i == 5:         continue  # i no se incrementa y la condición nunca cambia     print(i)     i += 1
+
+¿Cómo sumar de a dos y por qué no se llega al 5?
+
+# Suma en pasos de 2: 2, 4, 6, 8, 10 i = 0 while i <= 10:     i += 2     print(i)
+
+Como solo recorre números pares, nunca alcanza 5 y una condición if i == 5 no se cumple.
+
+¿Qué rol cumple else en while y qué mensajes muestra?
+
+El bloque else del while se ejecuta solo cuando el bucle termina porque la condición dejó de ser verdadera, no por un break. Es útil para mostrar un estado final.
+
+i = 0 while i < 10:     i += 1     if i == 5:         continue     print(i) else:     print('i dejó de ser menor a diez')
+
+El else confirma que el bucle terminó de forma natural.
+El mensaje final indica el motivo: condición ya no verdadera.
+Con break, el else no se ejecuta.
+
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/a793b09373342b324be7c1efb0b281fa2e51cfe1
+
+https://github.com/platzi/python-fundamentos/blob/master/bucles/while.py
+
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+
+# 21 Bucle for en Python para recorrer listas
+
+El bucle for en Python te permite recorrer secuencias como cadenas de texto, listas, tuplas, diccionarios y rangos numéricos. Si estás aprendiendo programación, dominar esta estructura es clave para iterar datos y controlar el flujo de tu código sin escribir instrucciones repetitivas.
+
+¿Qué hace el bucle for y cómo se escribe?
+
+El for actúa como un iterador: toma elementos individuales dentro de una estructura más grande y ejecuta una instrucción por cada uno. La sintaxis básica nombra una variable que representa cada unidad de la secuencia.
+
+Por ejemplo, si declaras la variable palabra = "Python" y escribes for letra in palabra: print(letra), la terminal imprimirá P, Y, T, H, O, N en líneas separadas. Cada vuelta del bucle toma una letra distinta hasta agotar la cadena.
+
+¿Para qué sirve el bucle for en Python? Sirve para recorrer cualquier secuencia iterable (texto, listas, tuplas, diccionarios, rangos) y ejecutar instrucciones sobre cada elemento sin repetir código manualmente.
+
+¿Cómo recorrer listas con for y controlar el flujo?
+
+La misma lógica aplica para listas. Si tienes frutas = ["manzana", "naranja", "kiwi"], basta con escribir for fruta in frutas: print(fruta) para imprimir cada ítem. El nombre en singular representa cada elemento, y el nombre en plural es la lista completa.
+
+¿Cuándo usar break y continue dentro de un for?
+
+Dentro del bucle puedes alterar su comportamiento con dos palabras clave que ya conocías de while:
+
+break: rompe el bucle por completo. Si añades if fruta == "naranja": break, solo se imprimirá manzana, porque al llegar a naranja el bucle termina.
+continue: saltea esa iteración y sigue con la siguiente. Con la misma condición, se imprimirán manzana y kiwi, omitiendo naranja.
+else: se ejecuta una vez que el bucle finaliza de forma natural. Es útil para mostrar mensajes como ya hemos terminado el bucle for.
+Estas tres herramientas te dan control fino sobre cuándo detener, saltar o cerrar la iteración.
+
+¿Cómo funciona range y los bucles anidados?
+
+La función range() genera secuencias numéricas y es probablemente la compañera más usada del for. Su comportamiento tiene tres formas que conviene memorizar.
+
+¿Qué números incluye range en Python?
+
+El range empieza en cero por defecto y termina en el número indicado sin incluirlo. Estas son las variantes:
+
+range(10): produce del 0 al 9.
+range(3, 5): produce 3 y 4, porque arranca en el primer número y excluye el segundo.
+range(0, 10, 2): produce 0, 2, 4, 6, 8, saltando de dos en dos sin incluir el 10.
+Si cambias el límite a 11 con paso de 2, entonces sí aparecerá el 10. La regla es siempre la misma: el número final del rango queda fuera.
+
+¿Range incluye el último número? No. range siempre excluye el valor final. Si necesitas incluirlo, suma uno al límite superior.
+
+¿Qué es un bucle for anidado?
+
+Un bucle anidado es un for dentro de otro for. Sirve cuando necesitas combinar elementos de dos secuencias. Por ejemplo, con la lista frutas y otra lista adjetivos = ["rica", "saludable"]:
+
+python for adjetivo in adjetivos: for fruta in frutas: print(fruta, adjetivo)
+
+El resultado es: manzana rica, naranja rica, kiwi rica, manzana saludable, naranja saludable, kiwi saludable. El bucle externo da una vuelta y el interno completa todas las suyas antes de que el externo avance. Por eso ves tres frutas con rica y luego tres con saludable.
+
+Aquí va un desafío: ¿cómo cambiarías el código para que la salida sea manzana rica, manzana saludable, naranja rica, naranja saludable, kiwi rica, kiwi saludable? Pista: el orden de los bucles importa. Déjalo en los comentarios.
+
+¿Qué hace pass dentro de un bucle for?
+
+A veces escribes la estructura de un bucle pero todavía no sabes qué instrucción colocar dentro. Si dejas el bloque vacío, Python lanza error. La solución es la palabra pass.
+
+Con for i in range(10): pass, no se imprime nada, pero el programa no falla. Es un placeholder que mantiene la sintaxis válida hasta que definas la lógica real. Funciona igual que en if y en while.
+
+Con esto cierras los dos bucles que ofrece Python: el while para repetir mientras se cumpla una condición, y el for para recorrer secuencias. Combinados con if, break, continue, else y pass, te dan control total sobre el flujo de tu programa. ¿Qué resultado te dio el desafío de las frutas? Cuéntalo abajo.
+
+LINKS
+
+https://github.com/platzi/python-fundamentos/commit/b92ed0dd3ecb6689d6371f6df36535ac9414d737
+
+https://github.com/platzi/python-fundamentos/blob/master/bucles/for.py
+
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 
 
