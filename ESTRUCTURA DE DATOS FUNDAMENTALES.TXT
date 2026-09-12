@@ -1,0 +1,182 @@
+# 22 Métodos esenciales de listas en Python
+
+Las listas en Python son una de las primeras colecciones que necesitas dominar si quieres manejar datos de forma eficiente. Aquí aprenderás qué son, cómo crearlas, modificarlas y qué métodos te permiten ordenarlas, unirlas o eliminar elementos, todo con ejemplos prácticos pensados para quien empieza a programar.
+
+¿Qué es una lista en Python y qué la hace especial?
+
+Una lista es una colección de elementos asignados a una sola variable. Tiene tres características que la definen: es ordenada, mutable y permite duplicados. Eso significa que cada elemento ocupa una posición fija, puedes cambiarlo cuando quieras y nada te impide repetir valores.
+
+Mira este ejemplo simple con frutas:
+
+python frutas = ["manzana", "naranja", "mandarina"] print(frutas) print(type(frutas)) # <class 'list'>
+
+Al imprimirla, Python te devuelve la lista tal como la escribiste y confirma que es de tipo list [01:00].
+
+¿Qué significa que una lista sea ordenada? Que cada elemento tiene una posición fija llamada índice, y los índices empiezan en cero. El primer elemento es el índice 0, el segundo es el 1, y así sucesivamente.
+
+¿Cómo accedo y modifico elementos por índice?
+
+Para acceder a un elemento usas corchetes con el índice. Si quieres la naranja, escribes frutas[1] porque es la segunda posición [01:30]. Y como las listas son mutables, puedes sobrescribir ese valor directamente:
+
+python frutas[1] = "banana" print(frutas) # ['manzana', 'banana', 'mandarina']
+
+Un detalle importante: Python lee el código de arriba hacia abajo. Si imprimes la lista antes del cambio, verás el valor original; si la imprimes después, verás el nuevo.
+
+¿Puedo mezclar tipos de datos en una lista?
+
+Sí, y aquí viene lo interesante. Una lista puede contener strings, números y booleanos al mismo tiempo:
+
+python lista = ["Juan", 25, True] print(type(lista)) # <class 'list'>
+
+Python no te obliga a que todos los elementos sean del mismo tipo [03:30].
+
+¿Cómo cuento cuántos elementos tiene una lista?
+
+Usa len(), que viene de length (largo en inglés). Funciona igual que con strings:
+
+python print(len(frutas)) # 4
+
+¿Qué métodos puedo usar para modificar una lista?
+
+Python te da varios métodos para agregar, quitar y reorganizar elementos. Son las herramientas que vas a usar todo el tiempo cuando trabajes con colecciones.
+
+¿Cómo agrego elementos con append e insert?
+
+El método append agrega un elemento al final de la lista. El método insert te permite elegir exactamente en qué posición lo colocas [05:30].
+
+python vehiculos = ["auto", "moto", "avion"] vehiculos.append("barco")
+
+['auto', 'moto', 'avion', 'barco']
+
+vehiculos.insert(1, "bicicleta")
+
+['auto', 'bicicleta', 'moto', 'avion', 'barco']
+
+Cuando insertas en el índice 1, todos los elementos que estaban desde esa posición se corren un lugar adelante.
+
+¿Cómo elimino elementos con remove y pop?
+
+Tienes dos formas: remove elimina pasándole el valor del elemento, mientras que pop lo elimina pasándole el índice [07:00].
+
+python vehiculos.remove("auto") # elimina por valor vehiculos.pop(1) # elimina por índice
+
+¿Cuál es la diferencia entre remove y pop? remove recibe el elemento que quieres borrar, pop recibe la posición. Usa pop cuando sepas el índice y remove cuando sepas el valor.
+
+¿Cómo ordeno una lista alfabética o inversamente?
+
+Con sort ordenas alfabéticamente y con reverse inviertes el orden actual:
+
+python vehiculos.sort() # orden alfabético vehiculos.reverse() # orden invertido
+
+¿Cómo trabajo con rangos y verifico elementos?
+
+Las listas comparten propiedades con los strings. Puedes tomar un rango de elementos usando dos puntos entre los índices:
+
+python print(frutas[0:2]) # del índice 0 hasta el 1 print(frutas[:2]) # desde el inicio hasta el 1 print(frutas[1:]) # desde el índice 1 hasta el final
+
+Recuerda: el índice final no es inclusivo. Si pones [0:2], obtienes los elementos en las posiciones 0 y 1, no el 2 [04:30].
+
+Para verificar si un elemento existe dentro de una lista, usas la palabra in dentro de un condicional:
+
+python if "manzana" in frutas: print("La manzana está dentro de las frutas")
+
+Esto convierte la verificación en una condición verdadera y ejecuta el bloque interno del if.
+
+¿Cómo uno dos listas en Python?
+
+Tienes dos caminos: el operador + y el método extend. La diferencia es clave [09:30].
+
+El operador + crea una nueva lista resultado de concatenar las dos originales sin modificarlas.
+El método extend modifica la primera lista, agregándole los elementos de la segunda.
+Ambos producen el mismo contenido final, pero el efecto sobre las listas originales es distinto.
+python coleccion1 = [1, 2, 3] coleccion2 = [4, 5, 6]
+
+coleccion3 = coleccion1 + coleccion2 # nueva lista [1,2,3,4,5,6] coleccion1.extend(coleccion2) # coleccion1 ahora es [1,2,3,4,5,6]
+
+Si necesitas conservar las listas originales intactas, usa el operador +. Si quieres acumular elementos en una lista existente, extend es tu opción.
+
+¿Qué método de listas te ha resultado más útil hasta ahora? Cuéntame en los comentarios cómo lo estás aplicando en tus proyectos.
+
+LINKS
+
+https://github.com/platzi/python-fundamentos/commit/7923285463029980caaa6231e118ba65a86592e0
+
+https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/listas.py
+
+------------------------------------------------------------+
+----------------------------------------------------------
+# 23  Tuplas en Python: ordenadas e inmutables
+
+Las tuplas en Python son colecciones ordenadas e inmutables que permiten elementos duplicados y distintos tipos de datos. Si vienes de trabajar con listas, vas a encontrar muchas similitudes, pero con una diferencia clave: una vez creadas, no puedes modificarlas directamente. Esto las vuelve útiles cuando necesitas garantizar que los datos no cambien durante la ejecución.
+
+¿Qué es una tupla en Python y cómo se declara?
+
+Una tupla se declara entre paréntesis, separando cada elemento con coma. Por ejemplo, podrías guardar tres lenguajes de programación así:
+
+python tecnologias = ("Python", "JavaScript", "Go")
+
+Cada elemento ocupa una posición o índice empezando en cero. Python está en el índice 0, JavaScript en el 1 y Go en el 2. Si imprimes tecnologias[1], obtienes solo JavaScript.
+
+¿Las tuplas permiten elementos duplicados? Sí. Puedes repetir valores sin problema, por ejemplo ("Python", "JavaScript", "Go", "Python"), y la función len() contará los cuatro elementos.
+
+¿Cómo crear una tupla de un solo elemento sin que Python la confunda?
+
+Aquí hay un detalle que confunde a quienes empiezan. Si escribes fruta = ("manzana") y consultas su tipo con type(), Python te devolverá string, no tupla. Los paréntesis se ignoran cuando hay un solo valor.
+
+Para que Python la reconozca como tupla, debes agregar una coma final:
+
+python fruta = ("manzana",)
+
+Con esa coma, el tipo cambia a tupla. Es un truco pequeño pero esencial.
+
+¿Cómo trabajar con distintos tipos de datos y desempaquetar tuplas?
+
+Las tuplas, igual que las listas, aceptan tipos de datos mezclados dentro de la misma estructura. Puedes combinar strings, enteros y booleanos sin que Python proteste:
+
+python tupla = ("Python", 5, True)
+
+Y aquí viene una de las funcionalidades más útiles: el desempaquetado. Puedes asignar cada elemento de la tupla a una variable distinta en una sola línea.
+
+python x, y, z = tupla
+
+Después de esa línea, x vale Python, y vale 5 y z vale True. Este desempaquetado también funciona con listas y conjuntos.
+
+¿Cómo concatenar y duplicar tuplas con operadores?
+
+Python te permite unir dos tuplas con el operador + y multiplicar sus elementos con *. Mira este ejemplo:
+
+python tupla1 = (1, 2, 3) tupla2 = (3, 4, 5) tupla3 = tupla1 + tupla2
+
+El resultado es (1, 2, 3, 3, 4, 5). El número 3 aparece dos veces porque las tuplas permiten duplicados.
+
+Si multiplicas una tupla por un entero, repites todos sus elementos esa cantidad de veces. tupla * 2 devuelve los elementos dos veces seguidas en la terminal.
+
+¿Puedo recorrer una tupla con un bucle for? Sí. La sintaxis es idéntica a la de una lista: for item in tupla: print(item). Esto imprime cada elemento uno por uno.
+
+¿Cómo modificar una tupla si es inmutable?
+
+Como las tuplas no permiten agregar, eliminar ni cambiar elementos directamente, no tienes acceso a métodos como append(). Pero existe un truco práctico: convertir la tupla en lista, modificarla y volver a convertirla en tupla.
+
+El proceso se apoya en dos funciones de casteo, list() y tuple(). Aquí el flujo paso a paso:
+
+Convierte la tupla en lista con list(tupla_a_modificar).
+Modifica la lista usando métodos como append(), remove() o asignación por índice.
+Vuelve a convertir la lista en tupla con tuple(lista_comodin).
+Un ejemplo completo se vería así:
+
+python tupla_a_modificar = ("Python", "JavaScript", "Go") lista_comodin = list(tupla_a_modificar) lista_comodin.append("ReactJS") tupla_a_modificar = tuple(lista_comodin)
+
+Al imprimir tupla_a_modificar, ahora verás ("Python", "JavaScript", "Go", "ReactJS"). La tupla original sigue siendo inmutable; lo que hiciste fue reemplazarla por una nueva con los cambios aplicados.
+
+Este enfoque es útil cuando necesitas estructuras inmutables la mayor parte del tiempo, pero ocasionalmente requieres ajustar su contenido sin perder el control sobre los datos.
+
+¿Para qué proyecto crees que usarías una tupla en lugar de una lista? Cuéntame en los comentarios cómo te imaginas aplicando esta estructura en tu próximo programa.
+
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/93d7ea21ffc185fae2e0c1ed39d5627c1186453f
+https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/tuplas.py
+
+-----------------------------------------------------------------
+-------------------------------------------------------------------------
