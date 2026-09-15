@@ -256,3 +256,108 @@ links
 
 https://github.com/platzi/python-fundamentos/commit/ba01f1a5d8432000b65c62536b6b7134d1cff312
 
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+# 25 Diccionarios en Python: claves y valores
+
+Los diccionarios en Python son una colección ordenada de pares clave-valor que te permite asignar múltiples características a un mismo elemento usando una sintaxis simple y legible. Desde Python 3.7 mantienen el orden de inserción, lo que los vuelve ideales para representar objetos como un auto, una persona o cualquier entidad con propiedades.
+
+¿Qué es un diccionario en Python y cómo se crea?
+
+Un diccionario agrupa información mediante pares donde cada clave apunta a un valor. La clave va a la izquierda, el valor a la derecha, separados por dos puntos, y cada par se separa con coma.
+
+python auto = { "marca": "Renault", "modelo": "Clio", "año": 2025 } print(auto)
+
+Al imprimirlo verás todo el contenido en una línea, pero esta estructura vertical es más human friendly para leer mientras programas. No hace falta poner coma después del último par.
+
+¿Qué es un par clave-valor? Es la unidad básica de un diccionario: una etiqueta única (clave) asociada a un dato (valor), separadas por dos puntos. Por ejemplo, "marca": "Renault".
+
+¿Cómo accedo a un valor específico del diccionario?
+
+Tienes dos formas de leer un valor a partir de su clave. La primera usa corchetes y la segunda el método get().
+
+python print(auto["marca"]) # Renault print(auto.get("marca")) # Renault
+
+Ambas devuelven el mismo resultado. La diferencia práctica es que get() te ayuda cuando no estás seguro si la clave existe, sin romper tu programa.
+
+¿Cómo obtengo solo las claves o solo los valores?
+
+A veces no necesitas todo el diccionario, solo una parte. Para eso existen keys() y values().
+
+auto.keys() devuelve las claves: marca, modelo, año.
+auto.values() devuelve los valores: Renault, Clio, 2025.
+Ambos vienen ordenados desde Python 3.7.
+Esto es útil cuando quieres listar propiedades sin importar el dato, o viceversa.
+
+¿Cómo verifico si una clave existe en un diccionario?
+
+Usa el operador in para preguntar si una clave forma parte del diccionario. Recuerda que Python es case sensitive, así que marca y Marca son distintas.
+
+python if "marca" in auto: print("marca es una de las propiedades de este diccionario")
+
+Si quieres evitar problemas con mayúsculas, normaliza ambos lados con .lower() antes de comparar. Ese pequeño detalle te ahorra bugs silenciosos.
+
+¿Cómo modifico, agrego o elimino elementos en un diccionario?
+
+La manipulación de datos es donde los diccionarios brillan. Puedes cambiar valores, sumar nuevos pares y limpiar el contenido con métodos integrados.
+
+¿Cómo modifico o agrego pares clave-valor?
+
+Para cambiar un valor existente o crear uno nuevo, asigna directamente con corchetes.
+
+python auto["año"] = 2020 # modifica auto["color"] = "verde" # agrega
+
+También puedes usar update(), que combina ambas operaciones en una sola línea y acepta varios pares al mismo tiempo:
+
+python auto.update({"año": 2022, "puertas": 4})
+
+Con update() modificas año y agregas puertas simultáneamente, lo que es más limpio cuando manejas varios cambios juntos.
+
+¿Cuál es la diferencia entre asignación directa y update()? La asignación directa trabaja con un solo par a la vez. update() permite modificar y agregar varios pares clave-valor en una sola línea de código.
+
+¿Cómo elimino elementos de un diccionario?
+
+Tienes tres métodos según lo que necesites borrar.
+
+auto.pop("puertas") elimina la clave que indiques.
+auto.popitem() elimina el último par insertado en el diccionario.
+auto.clear() vacía el diccionario por completo, dejándolo como {}.
+Elige el que se ajuste a tu intención: borrar algo específico, quitar el último o empezar de cero.
+
+¿Cómo recorro un diccionario con un bucle for?
+
+Iterar sobre diccionarios es muy frecuente y tienes tres caminos según qué información necesites en cada vuelta.
+
+python for k in auto: print(k) # claves
+
+for v in auto.values(): print(v) # valores
+
+for key, value in auto.items(): print(key, value) # ambos
+
+El método items() es especialmente útil porque te entrega clave y valor al mismo tiempo, listo para imprimir o procesar como string. Es el patrón más común cuando trabajas con datos estructurados.
+
+¿Qué son los diccionarios anidados y para qué sirven?
+
+Un diccionario anidado es un diccionario dentro de otro diccionario. Sirve cuando una entidad tiene sub-entidades con sus propias propiedades, como una familia con varios hijos.
+
+python familia = { "hijo1": {"nombre": "Pedro", "edad": 8}, "hijo2": {"nombre": "Ana", "edad": 7}, "hijo3": {"nombre": "Marcelo", "edad": 6} }
+
+Cada hijo es una clave del diccionario externo, y su valor es otro diccionario con propiedades comunes. Para acceder a un dato interno encadenas corchetes:
+
+python print(familia["hijo1"]["nombre"]) # Pedro
+
+Si tuvieras más niveles de anidación, simplemente agregas más corchetes a la derecha hasta llegar al valor que buscas. Por eso en otros lenguajes a los diccionarios se les llama objetos directos: te permiten asignar características múltiples y jerárquicas a una sola variable.
+
+¿Para qué tipo de datos usarías un diccionario anidado en tu próximo proyecto? Cuéntame en los comentarios.
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/fdc344b27511de9e542ab712f79da96433c88ee0
+
+https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/diccionario.py
+
+----------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
