@@ -180,3 +180,79 @@ https://github.com/platzi/python-fundamentos/blob/master/tipo-de-datos/tuplas.py
 
 -----------------------------------------------------------------
 -------------------------------------------------------------------------
+# 24 Conjuntos en Python: qué son y cómo usarlos
+
+Trabajar con conjuntos en Python te permite manejar colecciones no ordenadas que eliminan duplicados de forma automática. Si necesitas limpiar datos repetidos o aplicar operaciones matemáticas como unión e intersección, los sets son la herramienta ideal dentro de las colecciones del lenguaje.
+
+¿Qué es un conjunto en Python y cómo se define?
+
+Un conjunto es una colección no ordenada de elementos únicos. Para crearlo usas llaves {} y separas los elementos con coma. Por ejemplo, puedes definir un grupo de frutas así:
+
+python frutas = {"manzana", "naranja", "mandarina"} print(type(frutas)) # <class 'set'>
+
+Si intentas agregar "naranja" por segunda vez dentro de la definición, Python ignora ese duplicado. Por eso, aunque escribas cuatro elementos con uno repetido, len(frutas) devuelve 3 [01:20]. El elemento duplicado no forma parte del conjunto, simplemente se descarta al momento de asignarlo.
+
+¿Los sets en Python permiten duplicados? No. Cualquier elemento repetido es ignorado automáticamente al crear o modificar el conjunto, lo que los hace ideales para eliminar valores redundantes.
+
+Los conjuntos también admiten distintos tipos de datos mezclados: strings, números y booleanos pueden convivir sin problema. Eso sí, al recorrerlos con un bucle for, el orden de impresión no coincide con el orden de definición, justamente porque son colecciones no ordenadas [02:45].
+
+¿Cómo verifico si un elemento está dentro de un conjunto?
+
+La palabra clave in te permite comprobar la presencia de un valor en el set. Combinada con not in, puedes validar la ausencia de un elemento.
+
+python print("manzana" in frutas) # True print("pera" not in frutas) # True
+
+Esta verificación es directa y se lee como una pregunta lógica: ¿está o no está? Útil cuando necesitas filtrar antes de procesar.
+
+¿Cómo agregar y eliminar elementos en un set?
+
+Los conjuntos son mutables en su totalidad, aunque no puedes modificar un elemento puntual porque no existen índices. Lo que sí puedes hacer es sumar o restar elementos.
+
+Métodos para agregar: add y update
+
+Para incorporar un elemento individual usas add. Para sumar varios a la vez, update acepta otro conjunto, una lista o una tupla [05:30].
+
+python frutas.add("pera") frutas_tropicales = {"piña", "mango"} frutas.update(frutas_tropicales)
+
+La flexibilidad de update es clave: no estás limitado a fusionar solo sets, sino que puedes traer datos desde otras estructuras de colección.
+
+Métodos para eliminar: remove, discard, pop y clear
+
+Aquí tienes cuatro formas de quitar elementos, cada una con un comportamiento distinto:
+
+remove(elemento): elimina el elemento indicado. Si no existe, lanza un error.
+discard(elemento): elimina el elemento indicado. Si no existe, ignora la instrucción sin error.
+pop(): elimina un elemento aleatorio, ya que el set no tiene orden ni índice.
+clear(): vacía el conjunto por completo y lo deja como set().
+La diferencia entre remove y discard es la que más confusión genera. Si tu código no debe romperse cuando intentas borrar algo que quizá no exista, discard es la opción segura.
+
+¿Cuándo usar discard en vez de remove? Usa discard si no estás seguro de que el elemento exista en el conjunto. remove lanza un error si el valor no está; discard simplemente no hace nada.
+
+Con pop debes tener cuidado: como elimina al azar, ejecutarlo dos veces seguidas dará resultados distintos [08:15]. No es predecible.
+
+¿Qué operaciones matemáticas puedo hacer entre conjuntos?
+
+Los sets en Python replican las operaciones clásicas de teoría de conjuntos: unión, intersección y diferencia. Imagina dos grupos:
+
+python set1 = {"a", "b", "c"} set2 = {"c", "d", "e"}
+
+El único elemento en común es "c". A partir de ahí puedes aplicar tres operaciones:
+
+Unión con set1.union(set2): junta todos los elementos sin repetir. Resultado: {a, b, c, d, e}.
+Intersección con set1.intersection(set2): devuelve solo los elementos comunes. Resultado: {c}.
+Diferencia con set1.difference(set2): devuelve los elementos de set1 que no están en set2. Resultado: {a, b}.
+Estas operaciones reflejan exactamente lo que verías en un diagrama de Venn, y son útiles para comparar conjuntos de datos sin escribir lógica condicional manual [10:50].
+
+¿Cómo elimino duplicados de una lista usando sets?
+
+Uno de los usos prácticos más potentes de los conjuntos es limpiar duplicados de otras colecciones. Si tienes una lista o tupla con valores repetidos, puedes convertirla a set y luego volver a list:
+
+python lista = [1, 2, 2, 3, 3, 4] lista_limpia = list(set(lista))
+
+El resultado es una lista sin valores repetidos. Ten en cuenta que el orden original puede perderse, ya que el set no lo conserva.
+
+¿Has usado conjuntos para limpiar datos en algún proyecto? Cuéntame en los comentarios qué problema resolviste con ellos.
+links 
+
+https://github.com/platzi/python-fundamentos/commit/ba01f1a5d8432000b65c62536b6b7134d1cff312
+
