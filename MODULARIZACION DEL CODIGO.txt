@@ -1,0 +1,249 @@
+#26 Funciones en Python para reutilizar código
+
+Las funciones en Python son bloques de código reutilizables que solo se ejecutan cuando los llamas, y dominarlas te ahorra cientos de líneas y desordena menos tu programa. Si estás aprendiendo programación, entender cómo definirlas con def, pasarles argumentos y retornar valores es la base para escribir código modular y limpio.
+
+¿Cómo se define una función en Python?
+
+La sintaxis es simple: usas la palabra reservada def, seguida del nombre de la función, paréntesis y dos puntos. Todo lo que escribas indentado debajo será el cuerpo de la función, es decir, las instrucciones que se ejecutarán solo cuando la llames.
+
+python def mi_funcion(): print("Hola mundo desde una función")
+
+Si corres el programa así, no pasa nada. Y aquí viene lo interesante: a diferencia del código secuencial que veníamos escribiendo línea por línea, una función necesita que la invoques explícitamente. Para hacerlo, escribes su nombre seguido de paréntesis de apertura y cierre.
+
+python mi_funcion()
+
+Esos paréntesis son la señal visual que le dice a Python: ejecuta este bloque ahora. Y si llamas la función varias veces, el mensaje se imprime tantas veces como la invoques. Esa es la magia de la reutilización.
+
+¿Qué es una función en Python? Es un bloque de código nombrado que se ejecuta solo cuando lo llamas con paréntesis. Sirve para reutilizar lógica sin reescribirla.
+
+¿Cómo paso información a una función con argumentos y parámetros?
+
+Una función gana potencia cuando puedes personalizar su comportamiento. Para eso existen los argumentos: variables que la función espera recibir entre los paréntesis al momento de definirla.
+
+python def saludar(nombre): print("Hola " + nombre)
+
+saludar("Pedro") saludar("María")
+
+Fíjate en un detalle del editor: cuando declaras una variable y no la usas dentro del cuerpo, suele aparecer en color apagado. Cuando sí la usas, cambia a un tono más vivo. Es una pista visual de que tu argumento está cumpliendo su propósito.
+
+¿Cuál es la diferencia entre argumento y parámetro?
+
+Aunque en la práctica muchas personas los usan como sinónimos, hay una distinción sutil:
+
+Argumento: la variable que la función espera recibir (lo que escribes en la definición).
+Parámetro: el valor real que le pasas cuando llamas a la función.
+¿Argumento o parámetro? Argumento es lo que la función espera; parámetro es lo que tú le pasas al ejecutarla. En el día a día verás los términos intercambiados.
+
+¿Importa el orden de los argumentos?
+
+Sí, y mucho. Cuando una función espera varios argumentos, el orden en que los envías define cómo se asignan dentro del bloque.
+
+python def saludar(nombre, apellido): print("Hola " + nombre + " " + apellido)
+
+saludar("Pedro", "Sánchez") saludar("María", "Gutiérrez")
+
+El resultado será “Hola Pedro Sánchez” y “Hola María Gutiérrez”. Si inviertes el orden, los nombres y apellidos quedarán cruzados. Y si omites uno de los dos argumentos esperados, Python lanzará un error: enviar todos los argumentos requeridos es obligatorio.
+
+¿Cómo asigno valores por defecto y retorno resultados?
+
+Para evitar errores cuando no quieres pasar todos los parámetros, puedes definir valores por defecto directamente en la firma de la función usando el signo igual.
+
+python def saludar(nombre, apellido="", nacionalidad="Colombia"): print("Hola " + nombre + " " + apellido + " de " + nacionalidad)
+
+saludar("Pedro", "Sánchez", "España") saludar("María") saludar("Ana")
+
+En este ejemplo, si no envías nacionalidad, la función asume “Colombia”. Así, “Pedro” saldrá como de España, mientras que “María” y “Ana” tomarán el valor por defecto. Esta técnica te permite manejar casos donde algunos datos son opcionales sin romper la ejecución.
+
+¿Cómo funciona la sentencia return?
+
+Las funciones también pueden devolver información para que la uses en otra parte del programa. Para eso existe return.
+
+python def sumar(A, B): return A + B
+
+resultado = sumar(2, 3) print(resultado)
+
+Si llamas sumar(2, 3) sin asignar el resultado a nada, la suma ocurre pero se pierde. Por eso necesitas guardarla en una variable como resultado y luego imprimirla. La terminal mostrará 5.
+
+¿Qué hace return en una función? Devuelve un valor al lugar donde se llamó la función, para que puedas asignarlo a una variable o usarlo en otra operación.
+
+¿Qué hago si todavía no sé qué hará mi función?
+
+A veces el negocio o la lógica aún no están definidos y necesitas dejar la función esbozada sin contenido. Si la dejas vacía, Python lanzará un error de indentación.
+
+La solución es usar la sentencia pass, igual que en otras estructuras como los condicionales o los bucles. Le indica a Python: aquí no hay nada que ejecutar todavía, pero no falles.
+
+python def funcion(): pass
+
+Este pequeño truco te permite construir el esqueleto de tu programa antes de escribir toda la lógica, manteniendo el código ejecutable mientras avanzas.
+
+Ahora te dejo un reto: en el ejemplo vimos cómo sumar con una función. ¿Cómo escribirías funciones para restar, multiplicar y dividir dos números? Déjalo en los comentarios y comparte tu solución.
+
+links: 
+
+https://github.com/platzi/python-fundamentos/commit/8039bc67a3df847fe44daeb95a995c9c8f4508f0
+https://github.com/platzi/python-fundamentos/blob/master/funciones/funciones.py
+
+-----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------
+
+# 27 Funciones lambda y fábrica de funciones en Python
+
+Las lambdas en Python simplifican operaciones puntuales con código claro y directo. Aquí entenderás qué es una función anónima, cómo manejar argumentos y cómo crear una fábrica de funciones para construir un duplicador y un triplicador con poca sintaxis y alto impacto.
+
+¿Qué es una lambda y por qué importa?
+
+Una lambda es una función pequeña y anónima: no tiene nombre, puede recibir varios argumentos, pero contiene una sola expresión. Es ideal para operaciones cortas donde definir una función completa sería más largo.
+
+Sintaxis compacta y legible.
+Una sola expresión que se evalúa y retorna.
+Útil para cálculos inmediatos.
+¿Cuál es la sintaxis de lambda en Python?
+
+Sintaxis básica: palabra clave, argumentos, dos puntos y expresión.
+
+lambda argumentos: expresión
+
+Ejemplo de forma general.
+No usa nombre de función.
+Retorna el valor de la expresión.
+¿Cómo funciona con un argumento y una expresión?
+
+Ejemplo de suma de 10 a un argumento.
+
+x = lambda a: a + 10 print(x(5))  # 15
+
+x guarda la lambda.
+a recibe 5 y evalúa 5 + 10.
+Se imprime 15.
+¿Qué recomienda el editor sobre lambda?
+
+En Visual Studio Code aparece una advertencia sugiriendo usar una función común para casos simples. Para fines didácticos, la lambda es suficiente aquí.
+
+¿Cómo usar varios argumentos con lambda?
+
+También puedes pasar múltiples argumentos y operar con ellos en una sola expresión. El caso mostrado: sumar dos números.
+
+¿Cómo sumar argumentos con lambda?
+
+x = lambda a, b: a + b print(x(2, 3))  # 5
+
+a y b reciben 2 y 3.
+La expresión suma ambos argumentos.
+Devuelve 5 directamente.
+¿Por qué se parece a una función común?
+
+El patrón es idéntico a una función de suma tradicional, pero con sintaxis compacta. Sigue siendo una función válida que retorna el resultado de la expresión.
+
+¿Cómo construir una fábrica de funciones con lambda?
+
+El punto fuerte mostrado: usar lambdas para fabricar funciones que aplican una operación parametrizada. Aquí, multiplicar por un número n para crear un duplicador o triplicador.
+
+¿Qué hace mi_función y qué devuelve?
+
+def mi_función(n):     return lambda a: a * n
+
+Recibe n como parámetro de configuración.
+Devuelve una lambda que multiplica a por n.
+Permite crear funciones especializadas.
+¿Cómo crear duplicador y triplicador?
+
+duplicador = mi_función(2) triplicador = mi_función(3)
+
+duplicador multiplica por 2.
+triplicador multiplica por 3.
+Ambas son funciones lambda resultantes.
+¿Qué resultados obtienes al usarlas?
+
+print(duplicador(5))   # 10 print(triplicador(5))  # 15
+
+El argumento 5 actúa como a.
+n ya está establecido en 2 o 3 según el caso.
+Resultados: 10 y 15.
+¿Te animás a comentar cómo harías un quíntuplicador usando el mismo patrón? Comparte tu implementación y prueba con distintos valores.
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/62061c17508e88a561ebec060a1ba114e740850c
+
+https://github.com/platzi/python-fundamentos/blob/master/funciones/lambda.py
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+# 28 Cómo usar módulos en Python
+
+Si ya dominas funciones en Python y quieres dar el siguiente paso, los módulos en Python te permiten dividir tu código en varios archivos, cada uno con una funcionalidad distinta. Esto hace que tus proyectos sean más legibles, organizados y fáciles de mantener.
+
+Qué son los módulos en Python y para qué sirven
+
+Un módulo es simplemente un archivo .py que contiene funciones, variables o clases que puedes reutilizar desde otro archivo. La idea es que cada archivo se encargue de una tarea específica y tu archivo principal coordine todo.
+
+Imagina que tienes un proyecto con un archivo main.py y otro llamado operaciones.py. En operaciones.py defines cuatro funciones matemáticas, todas reciben dos argumentos (a y b):
+
+sumar(a, b) devuelve la suma.
+restar(a, b) devuelve la resta.
+multiplicar(a, b) devuelve el producto.
+dividir(a, b) devuelve la división.
+Desde main.py accedes a esas funciones sin reescribirlas. Y aquí viene lo interesante: puedes hacerlo de dos formas distintas según lo limpio que quieras dejar tu código.
+
+¿Qué es un módulo en Python? Es un archivo .py que agrupa funciones o variables relacionadas para que puedas importarlas y reutilizarlas desde otros archivos del proyecto.
+
+Cómo importar un módulo completo con import
+
+La forma más directa de traer un módulo es usar la palabra clave import seguida del nombre del archivo (sin la extensión .py).
+
+python import operaciones
+
+print(operaciones.sumar(2, 3)) # 5
+
+Fíjate en la sintaxis: operaciones.sumar(2, 3). Primero el nombre del módulo, luego un punto, y después la función que quieres usar. Esto funciona perfectamente, pero si vas a llamar muchas funciones del mismo módulo, terminarás repitiendo la palabra operaciones una y otra vez.
+
+Cuándo conviene usar import directo
+
+Esta forma es útil cuando trabajas con varios módulos y quieres dejar claro de dónde viene cada función. Mantiene el origen visible y evita confusiones cuando dos módulos tienen funciones con el mismo nombre.
+
+Cómo importar funciones específicas con from import
+
+La segunda forma es más concisa. Usas from seguido del nombre del módulo, y luego import con las funciones que necesitas, separadas por comas.
+
+python from operaciones import sumar, restar, multiplicar, dividir
+
+print(sumar(2, 3)) # 5 print(restar(2, 3)) # -1 print(multiplicar(2, 3)) # 6 print(dividir(10, 5)) # 2.0
+
+Ahora puedes usar sumar, restar, multiplicar y dividir directamente, sin anteponer el nombre del módulo cada vez. Es más limpio y se lee mejor.
+
+Nota un detalle: al dividir 10 / 5, el resultado es 2.0, un número flotante. En Python, el operador de división siempre devuelve flotante aunque el resultado sea un número entero exacto.
+
+¿Cuál es la diferencia entre import y from import? Con import traes el módulo completo y accedes con modulo.funcion(). Con from modulo import funcion traes solo lo que necesitas y lo usas directamente por su nombre.
+
+Por qué dividir tu proyecto en varios archivos
+
+Cuando un proyecto crece, meter todo en un solo archivo se vuelve un caos. Los módulos resuelven esto al permitirte separar responsabilidades.
+
+Cada archivo tiene una función clara y específica.
+El archivo principal queda corto y fácil de leer.
+Reutilizas el mismo módulo en otros proyectos sin copiar y pegar.
+Encuentras y corriges errores más rápido porque sabes dónde está cada cosa.
+En la práctica, así trabajan los proyectos reales en Python. Tendrás un archivo para la lógica de operaciones, otro para la conexión a datos, otro para la interfaz, y un main.py que los orquesta a todos.
+
+¿Puedo importar varias funciones a la vez? Sí, separa los nombres con comas: from operaciones import sumar, restar, multiplicar, dividir. Así traes solo lo que necesitas en una sola línea.
+
+Cómo aplicar módulos en tu proyecto final
+
+Piensa en tu proyecto como un equipo donde cada archivo cumple un rol. Si estás construyendo una calculadora, una API o un script de automatización, identifica qué bloques de código se repiten o tienen una responsabilidad clara y muévelos a su propio módulo.
+
+Luego, desde tu main.py, decides si importas el módulo completo o solo las funciones específicas que vas a usar. Esa decisión depende de cuántas funciones necesitas y de qué tan claro quieres que quede el origen de cada una.
+
+¿Ya tienes pensado cómo vas a dividir tu próximo proyecto en módulos? Cuéntame en los comentarios qué archivos crearías y qué funciones pondrías en cada uno.
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/b0b5972c96d2ffc606078f3f4d0fc2a5c640a00d
+
+https://github.com/platzi/python-fundamentos/tree/master/modulos
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+
+
