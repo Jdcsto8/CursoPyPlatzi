@@ -1,0 +1,137 @@
+#29 Manejo de errores con try, except y finally en Python
+
+
+Aprende a manejar errores en Python con confianza: captura excepciones con try, responde con except y garantiza acciones finales con finally. Con ejemplos claros como ZeroDivisionError y NameError, verás cómo evitar caídas y comunicar la intención del código con mensajes útiles.
+
+¿Qué es try y except en Python?
+
+Python ofrece una estructura simple para el manejo de errores. El bloque try intenta ejecutar código y el bloque except captura la excepción si ocurre un problema. Usarlo de forma consciente mejora la legibilidad y la estabilidad del programa.
+
+Sintaxis clara y legible.
+Indentación obligatoria para cada bloque.
+Mensajes en la terminal que facilitan el diagnóstico.
+Especificar la excepción comunica intención al lector del código.
+Ejemplo básico:
+
+try:     print("Intentamos algo") except:     print("Captura error")
+
+¿Cómo capturar errores comunes: ZeroDivisionError y NameError?
+
+Identificar el tipo de error y declararlo en except es una buena práctica. Especificar la clase de excepción evita ocultar problemas no previstos y guía a quien lea el código.
+
+¿Cómo manejar ZeroDivisionError?
+
+Cuando se divide por cero, Python lanza ZeroDivisionError. Es recomendable capturarlo de forma explícita.
+
+# Sin manejo: resultado = 10 / 0  # Provoca ZeroDivisionError
+
+# Con manejo específico: try:     resultado = 10 / 0     print(resultado) except ZeroDivisionError:     print("No se puede dividir por cero.")
+
+Mensaje claro: “no se puede dividir por cero”.
+El editor puede sugerir especificar el tipo de excepción.
+Mejora el flujo del programa al evitar fallos abruptos.
+¿Cómo manejar NameError?
+
+Acceder a una variable no definida dispara NameError. Capturarlo permite informar qué ocurrió sin detener el programa.
+
+# Sin manejo: print(x)  # Provoca NameError
+
+# Con manejo específico: try:     print(x) except NameError:     print("Esta variable no ha sido definida.")
+
+Útil cuando el flujo del programa puede no definir una variable.
+Facilita depurar y comunicar el fallo.
+Mantiene la ejecución bajo control.
+¿Para qué sirve finally en el manejo de errores?
+
+El bloque finally se ejecuta siempre, ocurra o no una excepción. Es ideal para acciones finales: por ejemplo, mostrar un aviso o ejecutar pasos que no deben omitirse.
+
+# Con error presente: try:     print(x)  # x no definida except NameError:     print("Esta variable no ha sido definida.") finally:     print("Esto se ejecuta siempre.")
+
+# Sin error: x = 1 try:     print(x) except NameError:     print("Esta variable no ha sido definida.") finally:     print("Esto se ejecuta siempre.")
+
+Garantiza la ejecución de pasos finales.
+Funciona tanto si el try fue exitoso como si hubo error.
+Mantiene consistente el comportamiento del programa.
+¿Te encontraste con otros errores durante tu aprendizaje? Comparte en los comentarios qué excepciones te aparecieron y cómo las capturarías con try y except.
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/53d3e13abfb36db53c2c7450879e2d6adf97e245
+
+
+https://github.com/platzi/python-fundamentos/blob/master/manejo-errores/try_except.py
+
+------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
+
+# 30 Leer y escribir archivos de texto en Python
+
+Manipular archivos en Python te permite leer, escribir y crear documentos externos para guardar información de forma persistente. Aprenderás a usar la función open, el bloque with, y los modos de lectura, escritura y creación, ideales para quienes empiezan con automatización o proyectos que requieren almacenamiento.
+
+Cómo se usa la función open para abrir archivos en Python
+
+La función open es una herramienta integrada de Python que recibe dos argumentos: el nombre del archivo y el modo en que quieres manipularlo. Con esto defines si vas a leer, escribir o crear un documento nuevo.
+
+Los tres modos principales que vas a usar son:
+
+r (read): abre el archivo en modo lectura. Si el archivo no existe, lanza un error.
+w (write): abre en modo escritura. Si el archivo existe, lo sobrescribe; si no, lo crea.
+x: crea un archivo nuevo. Si ya existe, lanza un error.
+¿Qué hace open en Python? Es una función integrada que abre un archivo y devuelve un objeto sobre el que puedes leer, escribir o agregar contenido según el modo que indiques.
+
+Por qué necesitas try y except al manejar archivos
+
+Cuando intentas leer un archivo que no existe, Python lanza un error llamado FileNotFoundError. Para que tu programa no se interrumpa, envuelves el bloque de apertura dentro de un try y capturas ese error específico en el except.
+
+python try: f = open("archivo.txt", "r") print(f.readline()) f.close() except FileNotFoundError: print("No se ha encontrado el archivo")
+
+De esta forma controlas el flujo y decides qué hacer cuando el archivo no aparece, por ejemplo, crearlo desde cero.
+
+Cómo simplificar la lectura de archivos con el bloque with
+
+Abrir y cerrar archivos manualmente con open y close funciona, pero genera código extra y abre la puerta a olvidos. Python ofrece la palabra clave with, que se encarga automáticamente de cerrar el archivo cuando termina el bloque.
+
+La sintaxis cambia un poco: el nombre de la variable va al final, después de as.
+
+python with open("archivo.txt", "r", encoding="utf-8") as f: print(f.readline())
+
+Este patrón también sirve para otros tipos de conexiones, no solo archivos, y se considera la forma recomendada en proyectos reales.
+
+Cómo leer varias líneas y manejar acentos correctamente
+
+El método readline lee una sola línea por llamada. Si quieres la segunda, llamas readline otra vez. Si necesitas todo el contenido completo, usas read.
+
+Cuando el archivo contiene acentos o caracteres especiales y aparecen símbolos raros tipo Unicode, agregas el parámetro encoding="utf-8" dentro de open. Con esto los caracteres se leen tal como fueron escritos.
+
+Un detalle clave: Python busca el archivo desde la carpeta donde se ejecuta el proyecto. Si tu archivo está en una subcarpeta, debes hacer cd a esa carpeta o ajustar la ruta, de lo contrario el FileNotFoundError aparecerá aunque el archivo exista.
+
+Cuál es la diferencia entre los modos w, a y x para escribir archivos
+
+Escribir en un archivo se hace con el método write, pero el resultado depende del modo que elegiste al abrirlo. Aquí está el comportamiento real de cada uno:
+
+w: sobrescribe todo el contenido previo. Si el archivo tenía texto, se borra y queda solo lo nuevo.
+a (append): agrega contenido al final, sin borrar lo que ya estaba.
+x: crea el archivo desde cero y falla si ya existe.
+python with open("archivo.txt", "a", encoding="utf-8") as f: f.write("\n") f.write("Hola mundo desde write en el with")
+
+¿Para qué sirve \n al escribir un archivo? Es el carácter de salto de línea. Si haces append sin \n, el texto nuevo queda pegado a la última línea existente.
+
+Cómo crear un archivo automáticamente cuando no existe
+
+Una combinación útil es atrapar el FileNotFoundError y, dentro del except, abrir el archivo con el modo x para crearlo. Después puedes volver a abrirlo en modo escritura y lectura.
+
+python try: with open("archivo.txt", "r", encoding="utf-8") as f: print(f.readline()) except FileNotFoundError: print("No se ha encontrado el archivo") open("archivo.txt", "x")
+
+with open("archivo.txt", "a", encoding="utf-8") as f: f.write("Hola mundo desde write en el with")
+
+with open("archivo.txt", "r", encoding="utf-8") as f: print(f.read())
+
+Con esta secuencia cubres los tres comportamientos: lectura, escritura y creación. Si el archivo no existe, lo creas vacío; luego escribes con append y finalmente lees todo el contenido con read.
+
+Manipular archivos abre la puerta a proyectos donde guardas información que sobreviva entre ejecuciones, justo lo que necesitas para un trabajo final tipo agenda, registro o pequeña base de datos en texto plano. ¿Qué archivo vas a crear primero con Python? Cuéntalo en los comentarios.
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/4311ef826377566346d6e03c81c30916456d8a03
+https://github.com/platzi/python-fundamentos/tree/master/manejo-archivos
+
