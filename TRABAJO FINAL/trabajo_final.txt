@@ -1,0 +1,140 @@
+# CLASE 31  Máquina de café en Python paso a paso
+
+Construir una máquina de café en Python desde la terminal es una forma divertida de practicar funciones, módulos, bucles y control de flujo en un mismo proyecto. Aquí aprendes a estructurar el archivo principal, separar la lógica en módulos y manejar la entrada del usuario con input y condicionales.
+
+¿Cómo se estructura el archivo principal de una máquina de café en Python?
+
+Todo proyecto en Python necesita un punto de partida claro, y por convención ese archivo se llama main.py. Ahí vive el flujo principal y desde ahí se invoca todo lo demás.
+
+Dentro de main.py defines una función main() que no recibe argumentos y contiene un bucle while True. Sí, leíste bien: la condición siempre es verdadera. Y aquí viene lo interesante: el bucle no se vuelve infinito porque tú decides cuándo romperlo con un break en el momento adecuado.
+
+¿Para qué sirve while True en Python? Crea un bucle que se repite indefinidamente hasta que un break lo interrumpe. Es útil cuando no sabes cuántas veces se ejecutará el ciclo, como en un menú interactivo.
+
+¿Cómo capturar la opción del usuario con input?
+
+La función input pide al usuario que escriba algo en la terminal y devuelve siempre un string. Por eso, al comparar la opción elegida, debes hacerlo contra texto: "1", "2", "3", no contra números enteros.
+
+Dentro del bucle se muestra el menú, se guarda la elección en una variable opcion y se evalúa con if, elif y else:
+
+Opción "1": pedir un café.
+Opción "2": ver el historial de pedidos.
+Opción "3": salir con un mensaje de despedida y break.
+Cualquier otra entrada: imprimir Opción inválida y volver a pedir.
+Mientras no tengas implementada una funcionalidad, usa pass para que Python no marque error y puedas seguir avanzando.
+
+¿Por qué usar if __name__ == "__main__" en proyectos con varios archivos?
+
+Cuando trabajas con múltiples módulos, necesitas asegurarte de que el programa arranque siempre desde el archivo correcto. Python resuelve esto con una línea muy específica al final del archivo principal:
+
+python if name == "main": main()
+
+Esa condición compara el nombre interno del archivo en ejecución con la cadena "__main__". Solo se cumple cuando ejecutas directamente main.py, lo que garantiza que el flujo principal arranque únicamente desde donde tú lo planeaste y no por accidente al importar el archivo desde otro módulo.
+
+¿Cómo separar el menú y los pedidos en módulos distintos?
+
+La idea es que cada archivo tenga una responsabilidad clara. Esto hace el código más legible y fácil de mantener.
+
+¿Cómo construir el módulo del menú?
+
+Creas un archivo llamado menu.py con una función mostrar_menu() que imprime las opciones disponibles. Usa \n al inicio del print para dejar un salto de línea y mejorar la lectura en terminal.
+
+El menú incluye:
+
+Pedir un café.
+Ver el historial de pedidos.
+Salir.
+Luego, desde main.py, importas la función con from menu import mostrar_menu y la invocas dentro del bucle antes de pedir la opción al usuario. Al ejecutar el programa, ya verás el saludo Bienvenido a la máquina de café junto con las tres opciones.
+
+¿Qué hace from menu import mostrar_menu? Importa solo la función mostrar_menu desde el archivo menu.py, sin traer todo el módulo. Así puedes llamarla directamente como si estuviera en el mismo archivo.
+
+¿Cómo manejar el pedido del café con un diccionario?
+
+La lógica del pedido vive en un archivo aparte llamado pedidos.py. Dentro defines la función pedir_cafe() que imprime los tipos de café disponibles y pide al usuario que elija uno con input.
+
+Las opciones se guardan en un diccionario donde la clave es el número de opción y el valor es el nombre del café:
+
+1: expreso.
+2: cappuccino.
+3: latte.
+4: americano.
+Usar un diccionario te permite acceder al café elegido directamente con cafes[opcion], sin escribir cuatro if distintos. Es más limpio y escalable: si quieres agregar más cafés, solo añades entradas al diccionario.
+
+¿Qué viene después de capturar el pedido?
+
+La siguiente etapa consiste en guardar cada pedido en un archivo para que después puedas leerlo desde la opción de historial. Esa parte conecta directamente con la lectura y escritura de archivos vista en la clase anterior y se desarrolla en la próxima sección del proyecto.
+
+Mientras tanto, ya tienes el esqueleto funcionando: un menú que se muestra, un usuario que elige, y tres caminos posibles controlados por condicionales. ¿Qué cafés agregarías tú al diccionario? Cuéntame en los comentarios.
+
+
+LINKS 
+
+https://github.com/platzi/python-fundamentos/commit/6f0077f9b1ab7cb7266a6ba1b056e08aaf5b123e
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+# 32 Escritura y lectura de archivos en Python
+
+Construir una máquina de café en Python te enseña a manejar escritura y lectura de archivos con casos reales: guardar pedidos, mostrar historial y controlar errores cuando el archivo aún no existe. Aquí verás cómo cerrar el proyecto final del curso usando diccionarios, modos de apertura y manejo de excepciones.
+
+Cómo validar la opción del usuario con un diccionario en Python
+
+El punto de partida es un diccionario donde las keys son números (1, 2, 3, 4) y los values son los nombres de los cafés: expreso, capuchino, latte y americano. Cuando preguntas if opcion in cafes, Python revisa directamente las claves, así que no necesitas escribir cafes.keys() para que funcione.
+
+Si la opción es válida, guardas el café en una variable llamada cafe_elegido accediendo con cafes[opcion]. Si no lo es, el else imprime un mensaje pidiendo intentar de nuevo. Este patrón evita validaciones largas con múltiples if encadenados [01:05].
+
+¿Por qué usar un diccionario en vez de listas? Porque te permite validar la opción y obtener el nombre del café en una sola operación, sin recorrer estructuras manualmente.
+
+Cómo escribir pedidos en un archivo .txt sin sobrescribir datos
+
+Aquí aparece la decisión clave del proyecto: el modo de apertura del archivo. Si usas "w", cada pedido nuevo borra el anterior. La solución es usar "a" (append), que agrega contenido al final del archivo sin tocar lo que ya estaba escrito [02:45].
+
+La estructura queda así:
+
+Abrir el archivo con with open(ARCHIVO_PEDIDOS, "a", encoding="utf-8") as archivo.
+Escribir el café con archivo.write(cafe_elegido + "\n").
+Usar "\n" para que cada pedido quede en una línea distinta.
+El encoding="utf-8" es importante porque permite guardar acentos y caracteres especiales sin que se rompan al leerlos después. Y el nombre del archivo se guarda en una constante ARCHIVO_PEDIDOS = "pedidos.txt", escrita en mayúsculas porque, por convención en Python, las constantes se nombran así [03:50].
+
+Cómo importar la función pedir_café en el main
+
+Desde el archivo principal, basta con from pedidos import pedir_cafe y llamarla en la opción 1 del menú. El bucle while mantiene la aplicación corriendo hasta que el usuario decide salir.
+
+Cómo leer el historial de pedidos con readlines y manejo de errores
+
+El segundo módulo, historial.py, debe leer el mismo archivo. Para evitar duplicar rutas, se reutiliza la constante ARCHIVO_PEDIDOS. La función ver_historial() se envuelve en un bloque try / except porque, si el usuario nunca ha pedido un café, el archivo no existe todavía [05:30].
+
+La lógica es esta:
+
+try: abre el archivo en modo lectura con "r" y encoding="utf-8".
+archivo.readlines() devuelve todas las líneas en una lista llamada pedidos.
+except FileNotFoundError: imprime que aún no existe un historial.
+¿Qué hace FileNotFoundError en Python? Es la excepción que se dispara cuando intentas leer un archivo que no existe. Atraparla evita que el programa se rompa.
+
+Cómo numerar el historial con enumerate
+
+Para mostrar cada pedido con su número, entra en escena enumerate, una función que devuelve dos valores en cada vuelta del bucle: el índice y el contenido. Le pasas enumerate(pedidos, 1) para que la numeración arranque en 1 en lugar de 0 [07:20].
+
+Dentro del for i, pedido in enumerate(pedidos, 1), conviertes i a string con str(i) y aplicas pedido.strip() para eliminar el salto de línea que se guardó al escribir el archivo. El método strip quita espacios y saltos al inicio y al final del texto.
+
+Si el archivo existe pero está vacío, un else complementa al if pedidos mostrando el mensaje aún no hay ningún pedido. Así cubres los tres flujos posibles: archivo inexistente, archivo vacío y archivo con datos.
+
+Qué aprendiste con este proyecto final de Python
+
+La máquina de café conecta varios fundamentos en una sola aplicación funcional:
+
+Diccionarios para mapear opciones a valores.
+Modos de apertura "a" y "r" con with open.
+Constantes en mayúscula como buena práctica.
+Manejo de excepciones con try / except FileNotFoundError.
+Iteración indexada con enumerate empezando desde 1.
+Limpieza de strings con strip para eliminar \n.
+Probar el flujo completo significa pedir varios cafés, ver cómo se acumulan en pedidos.txt, borrar líneas manualmente y comprobar que el historial se actualiza dinámicamente. La opción 3 ejecuta un break que rompe el while y cierra la aplicación con un mensaje de despedida [09:40].
+
+Cuéntame en los comentarios qué café elegirías como primer pedido y qué proyecto te gustaría construir como siguiente paso en tu ruta de Python.
+
+links 
+
+https://github.com/platzi/python-fundamentos/commit/ae055dba892300ea0f715bb9a7ddc2ab23e42ca0
+https://github.com/platzi/python-fundamentos/tree/master/trabajo-final-maquina-cafe
+
+#ULTIMA CLASE 
